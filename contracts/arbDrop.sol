@@ -1,16 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.16;
 
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import "hardhat/console.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/cryptography/MerkleProofUpgradeable.sol";
 
 contract ArbDrop is Initializable,OwnableUpgradeable,UUPSUpgradeable{
-    using SafeERC20 for IERC20;
+    using SafeERC20Upgradeable for IERC20Upgradeable;
 
     address public tokenAddr;
     bytes32 public merkleRoot;
@@ -49,11 +48,11 @@ contract ArbDrop is Initializable,OwnableUpgradeable,UUPSUpgradeable{
     }
 
     function tokenClaimBack(uint256 amount) external onlyOwner(){
-        IERC20(tokenAddr).safeTransfer(msg.sender, amount);
+        IERC20Upgradeable(tokenAddr).safeTransfer(msg.sender, amount);
     }
 
     modifier isValidTime() {
-        require(startTime <= block.timestamp && block.timestamp <= endTime);
+        require(startTime <= block.timestamp && block.timestamp <= endTime,"time error");
         _;
     }
 
@@ -65,7 +64,7 @@ contract ArbDrop is Initializable,OwnableUpgradeable,UUPSUpgradeable{
 
         require(!claimed[leaf], "Address already claimed");
         claimed[leaf] = true;
-        IERC20(tokenAddr).safeTransfer(msg.sender, amount);
+        IERC20Upgradeable(tokenAddr).safeTransfer(msg.sender, amount);
 
         emit Claim(msg.sender, amount, round, block.timestamp);
     }
@@ -75,7 +74,7 @@ contract ArbDrop is Initializable,OwnableUpgradeable,UUPSUpgradeable{
     }
 
     function _verify(bytes32 leaf, bytes32[] memory proof) internal view returns (bool){
-        return MerkleProof.verify(proof, merkleRoot, leaf);
+        return MerkleProofUpgradeable.verify(proof, merkleRoot, leaf);
     }
 }
 

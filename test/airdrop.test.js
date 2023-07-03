@@ -10,7 +10,7 @@ describe("ArbDrop", function () {
   let deployer, receiver, addr1;
 
   before(async function () {
-    [deployer, receiver, addr1] = await ethers.getSigners();
+    [deployer, receiver, addr1,addr2,addr3] = await ethers.getSigners();
     const deployment = require("../scripts/deployArbDrop.js");
 
     deployments = await deployment.execute();
@@ -58,13 +58,16 @@ describe("ArbDrop", function () {
        this.root = this.merkletree.getHexRoot();
        console.log("\nRoot:");
        console.log(this.root);
+
+       //change root
+       await deployments.arbDrop.changeRoot(this.root);
      });
 
     it("should get merkletree proof successfully", async function () {
       leafZero = hashToken(
-        tokenInfo[0].account,
-        tokenInfo[0].amount,
-        tokenInfo[0].round
+        tokenInfo[4].account,
+        tokenInfo[4].amount,
+        tokenInfo[4].round
       );
       this.proof = this.merkletree.getHexProof(leafZero);
       console.log("\nProof:");
@@ -72,9 +75,9 @@ describe("ArbDrop", function () {
     });
 
     it("should claim successfully", async function () {
-      const dropValue = ethers.utils.parseUnits("1001.1", "ether");
-      await deployments.arbDrop.getDrop(this.proof, dropValue, 1);
-      expect(await deployments.tsm.balanceOf(deployer.address)).to.equal(
+      const dropValue = ethers.utils.parseUnits("1005.5", "ether");
+      await deployments.arbDrop.connect(addr3).getDrop(this.proof, dropValue, 1);
+      expect(await deployments.tsm.balanceOf(addr3.address)).to.equal(
         dropValue
       );
     });
