@@ -1,5 +1,7 @@
 const hre = require("hardhat");
+const web3 = require("web3");
 const { ethers } = require("hardhat");
+const { time } = require("@nomicfoundation/hardhat-network-helpers");
 
 async function main() {
   const TSM = await hre.ethers.getContractFactory("TSM");
@@ -16,26 +18,24 @@ async function main() {
     ArbDrop,
     [
       tsm.address,
-      JSON.parse(process.env.lightClients),
-      new Date().getTime(),
-      new Date().getTime()+7200
+      web3.utils.hexToBytes(
+        "0x393a6b2973b81a9d431ee1fb700b17bd23e7cf31d66e9072616a7daf9b1e62be"
+      ),
+      await time.latest(),
+      await time.latest()+7200,
     ],
     { initializer: "initialize", kind: "uups" }
   );
 
   console.log("ArbDrop deployed to:", arbDrop.address);
 
-  console.log("等待兩個網路確認 ... ")
-  const receipt = await arbDrop.deployTransaction.wait(2);
+  // console.log("等待兩個網路確認 ... ")
+  // const receipt = await arbDrop.deployTransaction.wait(2);
 
-  console.log(
-    "邏輯合約地址 getImplementationAddress",
-    await upgrades.erc1967.getImplementationAddress(arbDrop.address)
-  );
-
-  console.Console.log("====== mint to arbdrop ======");
-
-  await tsm.mint(arbDrop.address,ethers.utils.parseUnits("1000000","ether"));
+  // console.log(
+  //   "邏輯合約地址 getImplementationAddress",
+  //   await upgrades.erc1967.getImplementationAddress(arbDrop.address)
+  // );
 
   return {
     tsm,

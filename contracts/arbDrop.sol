@@ -7,8 +7,7 @@ import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-
-
+import "hardhat/console.sol";
 
 contract ArbDrop is Initializable,OwnableUpgradeable,UUPSUpgradeable{
     using SafeERC20 for IERC20;
@@ -58,19 +57,21 @@ contract ArbDrop is Initializable,OwnableUpgradeable,UUPSUpgradeable{
         _;
     }
 
-    function getDrop(bytes32[] calldata merkleProof,uint8 round,uint256 amount) external isValidTime(){
+    function getDrop(bytes32[] calldata merkleProof,uint256 amount,uint8 round) external isValidTime(){
+        
         bytes32 leaf = _leaf(msg.sender,round,amount);
+
         require(_verify(leaf, merkleProof), "Invalid merkle proof");
 
         require(!claimed[leaf], "Address already claimed");
         claimed[leaf] = true;
-        IERC20(tokenAddr).safeTransferFrom(address(this), msg.sender, amount);
+        IERC20(tokenAddr).safeTransfer(msg.sender, amount);
 
         emit Claim(msg.sender, amount, round, block.timestamp);
     }
     
     function _leaf(address account, uint8 round,uint256 amount) internal pure returns (bytes32){
-        return keccak256(abi.encodePacked(account,round,amount));
+        return keccak256(abi.encodePacked(account,amount,round));
     }
 
     function _verify(bytes32 leaf, bytes32[] memory proof) internal view returns (bool){
