@@ -49,7 +49,7 @@ contract ArbDrop is Initializable,OwnableUpgradeable,UUPSUpgradeable{
     }
 
     function tokenClaimBack(uint256 amount) external onlyOwner(){
-        IERC20(tokenAddr).safeTransferFrom(address(this), msg.sender, amount);
+        IERC20(tokenAddr).safeTransfer(msg.sender, amount);
     }
 
     modifier isValidTime() {
