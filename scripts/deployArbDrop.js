@@ -19,10 +19,10 @@ async function main() {
     [
       tsm.address,
       web3.utils.hexToBytes(
-        "0x393a6b2973b81a9d431ee1fb700b17bd23e7cf31d66e9072616a7daf9b1e62be"
+        "0x92bc77bd2d8fe4ac585d0f31a563525490abc6c565409a7eb0fa37941c71731b"
       ),
       await time.latest(),
-      await time.latest()+7200,
+      (await time.latest()) + 7200,
     ],
     { initializer: "initialize", kind: "uups" }
   );

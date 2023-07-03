@@ -17,7 +17,7 @@ describe("ArbDrop", function () {
   });
 
   function hashToken(account,amount,round) {
-    const weiValues = ethers.utils.parseUnits(amount, "ether");
+    const weiValues = ethers.utils.parseUnits(amount.toString(), "ether");
     return Buffer.from(
       ethers.utils
         .solidityKeccak256(
@@ -30,7 +30,7 @@ describe("ArbDrop", function () {
   }
 
   describe("merkleTree proof", async function () {
-     it("should build merkleTree successfully", async function () {
+     it("should mint token successfully", async function () {
       const billionEther = ethers.utils.parseUnits("100000000", "ether");
         await deployments.tsm.mint(
           await deployments.arbDrop.address,
@@ -73,8 +73,10 @@ describe("ArbDrop", function () {
 
     it("should claim successfully", async function () {
       const dropValue = ethers.utils.parseUnits("1001.1", "ether");
-      await deployments.arbDrop.getDrop(this.proof, 1001, 1);
-      expect(await deployments.tsm.balanceOf(deployer.address)).to.equal(1001);
+      await deployments.arbDrop.getDrop(this.proof, dropValue, 1);
+      expect(await deployments.tsm.balanceOf(deployer.address)).to.equal(
+        dropValue
+      );
     });
 
     // it("should print ten address", async function () {
