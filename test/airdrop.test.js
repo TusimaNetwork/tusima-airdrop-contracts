@@ -82,9 +82,9 @@ describe("ArbDrop", function () {
       //   tokenInfo[4].amount,
       //   tokenInfo[4].round
       // );
-      console.log("\nHashToken:",this.leafs[3]);
+      console.log("\nHashToken:",this.leafs[4]);
 
-      this.proof = this.merkletree.getHexProof(leaf);
+      this.proof = this.merkletree.getHexProof(this.leafs[4]);
       console.log("\nProof:");
       console.log(this.proof);
     });
@@ -95,8 +95,10 @@ describe("ArbDrop", function () {
       expect(await deployments.tsm.balanceOf(addr3.address)).to.equal(
         dropValue
       );
+      expect(await deployments.arbDrop.claimed(this.leafs[4])).to.equal(
+        true
+      );
     });
-
     // it("should print ten address", async function () {
     //   for (let index = 0; index < 12; index++) {
     //     var indexAddress = await ethers.getSigners();
