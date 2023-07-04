@@ -2,6 +2,7 @@ const { ethers } = require("hardhat");
 const { MerkleTree } = require("merkletreejs");
 const keccak256 = require("keccak256");
 const { expect } = require("chai");
+const { Web3 } = require("web3");
 const { BigNumber } = require("@ethersproject/bignumber");
 const tokenInfo = require("./tokens.json");
 
@@ -16,6 +17,8 @@ describe("ArbDrop", function () {
     deployments = await deployment.execute();
   });
 
+  const web3 = new Web3("http://localhost:8545");
+
   function hashToken(account,amount,round) {
     const weiValues = ethers.utils.parseUnits(amount.toString(), "ether");
     return Buffer.from(
@@ -26,6 +29,15 @@ describe("ArbDrop", function () {
         )
         .slice(2),
       "hex"
+    );
+  }
+
+  function webHashToken(account,amount,round) {
+    const weiValues = ethers.utils.parseUnits(amount.toString(), "ether");
+    return web3.utils.soliditySha3(
+      { t: "address", v: account },
+      { t: "uint256", v: weiValues },
+      { t: "uint8", v: round }
     );
   }
 
@@ -42,10 +54,11 @@ describe("ArbDrop", function () {
       ).to.equal(billionEther);
      })
     it("should build merkleTree successfully", async function () {
+      this.leafs = tokenInfo.map((token) =>
+        webHashToken(token.account, token.amount, token.round)
+      );
       this.merkletree = new MerkleTree(
-        tokenInfo.map((token) =>
-          hashToken(token.account, token.amount, token.round)
-        ),
+        this.leafs,
         keccak256,
         { sortPairs: true }
       );
@@ -64,12 +77,14 @@ describe("ArbDrop", function () {
      });
 
     it("should get merkletree proof successfully", async function () {
-      leafZero = hashToken(
-        tokenInfo[4].account,
-        tokenInfo[4].amount,
-        tokenInfo[4].round
-      );
-      this.proof = this.merkletree.getHexProof(leafZero);
+      // leaf = hashToken(
+      //   tokenInfo[4].account,
+      //   tokenInfo[4].amount,
+      //   tokenInfo[4].round
+      // );
+      console.log("\nHashToken:",this.leafs[3]);
+
+      this.proof = this.merkletree.getHexProof(leaf);
       console.log("\nProof:");
       console.log(this.proof);
     });

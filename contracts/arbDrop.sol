@@ -15,7 +15,7 @@ contract ArbDrop is Initializable,OwnableUpgradeable,UUPSUpgradeable{
     bytes32 public merkleRoot;
     uint256 public startTime;
     uint256 public endTime;
-    mapping(bytes32=>bool) claimed;
+    mapping(bytes32=>bool) public claimed;
 
     function initialize(address _tokenAddress,bytes32 _merkleRoot,uint256 _startTime,uint256 _endTime) public initializer {
         __Ownable_init();
