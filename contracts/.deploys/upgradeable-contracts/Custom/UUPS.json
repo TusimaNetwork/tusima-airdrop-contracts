@@ -1,0 +1,12 @@
+{
+  "id": 421613,
+  "network": "Custom",
+  "deployments": {
+    "0x56ce37aed7074cc815610b3562b4af645ebbec02": {
+      "date": "2023-07-04T02:55:32.169Z",
+      "contractName": "ArbDrop",
+      "fork": "london",
+      "implementationAddress": "0x82B554d6b2064f071D34D2C3bb8bD27B0361EcCf"
+    }
+  }
+}

@@ -44,8 +44,7 @@ module.exports = {
   },
   etherscan: {
     apiKey: {
-      goerli: process.env.ETHSCAN_API_KEY,
-      sepolia: process.env.ETHSCAN_API_KEY,
+      arbitrumGoerli: process.env.ARBITRUM_API_KEY,
     },
   },
 };

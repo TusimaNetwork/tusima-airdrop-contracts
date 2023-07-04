@@ -47,12 +47,12 @@ contract ArbDrop is Initializable,OwnableUpgradeable,UUPSUpgradeable{
         endTime = _stopTime;
     }
 
-    function tokenClaimBack(uint256 amount) external onlyOwner(){
-        IERC20Upgradeable(tokenAddr).safeTransfer(msg.sender, amount);
+    function tokenClaimBack(address receiver,uint256 amount) external onlyOwner(){
+        IERC20Upgradeable(tokenAddr).safeTransfer(receiver, amount);
     }
 
     modifier isValidTime() {
-        require(startTime <= block.timestamp && block.timestamp <= endTime,"time error");
+        require(startTime <= block.timestamp && block.timestamp <= endTime,"wrong time");
         _;
     }
 
@@ -61,8 +61,8 @@ contract ArbDrop is Initializable,OwnableUpgradeable,UUPSUpgradeable{
         bytes32 leaf = _leaf(msg.sender,round,amount);
 
         require(_verify(leaf, merkleProof), "Invalid merkle proof");
-
         require(!claimed[leaf], "Address already claimed");
+
         claimed[leaf] = true;
         IERC20Upgradeable(tokenAddr).safeTransfer(msg.sender, amount);
 
