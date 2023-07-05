@@ -10,7 +10,7 @@ module.exports = {
         version: "0.8.16",
         settings: {
           optimizer: {
-            enabled: true,
+            enabled: false,
             runs: 200,
           },
         },
@@ -41,10 +41,31 @@ module.exports = {
         passphrase: "",
       },
     },
+    optimism: {
+      url: `${process.env.ArbitrumOne_END_POINT}`,
+      accounts: {
+        mnemonic: process.env.MNEMONIC,
+        path: "m/44'/60'/0'/0",
+        initialIndex: 0,
+        count: 20,
+        passphrase: "",
+      },
+    },
+    optimismGoerli: {
+      url: `https://opt-goerli.g.alchemy.com/v2/${process.env.Optimism_End_Point}`,
+      accounts: {
+        mnemonic: process.env.MNEMONIC,
+        path: "m/44'/60'/0'/0",
+        initialIndex: 0,
+        count: 20,
+        passphrase: "",
+      },
+    },
   },
   etherscan: {
     apiKey: {
       arbitrumGoerli: process.env.ARBITRUM_API_KEY,
+      optimismGoerli: process.env.OPTIMISM_API_KEY,
     },
   },
 };
