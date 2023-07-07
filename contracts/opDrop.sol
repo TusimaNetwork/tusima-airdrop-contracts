@@ -11,10 +11,14 @@ import "@openzeppelin/contracts-upgradeable/utils/cryptography/MerkleProofUpgrad
 contract OPDrop is Initializable,OwnableUpgradeable,UUPSUpgradeable{
     using SafeERC20Upgradeable for IERC20Upgradeable;
 
-    address public tokenAddr;
-    bytes32 public merkleRoot;
-    uint256 public startTime;
-    uint256 public endTime;
+    struct RoundInfo{
+        address tokenAddr;
+        bytes32 merkleRoot;
+        uint256 startTime;
+        uint256 endTime;
+    }
+
+    mapping(uint8=>RoundInfo) public roundInfos;
     mapping(bytes32=>bool) public claimed;
 
     /// @custom:oz-upgrades-unsafe-allow constructor
@@ -22,61 +26,60 @@ contract OPDrop is Initializable,OwnableUpgradeable,UUPSUpgradeable{
         _disableInitializers();
     }
     
-    event Claim(address claimer,uint256 amount,uint8 round,uint256 timestamp);
+    event Claim(uint8 round,address claimer,uint256 amount,uint256 timestamp);
 
     function initialize(address _tokenAddress,bytes32 _merkleRoot,uint256 _startTime,uint256 _endTime) public initializer {
         __Ownable_init();
         __UUPSUpgradeable_init();
 
-        tokenAddr = _tokenAddress;
-        merkleRoot = _merkleRoot;
-        startTime = _startTime;
-        endTime = _endTime;
+        roundInfos[0] =RoundInfo({
+            tokenAddr:_tokenAddress,
+            merkleRoot:_merkleRoot,
+            startTime:_startTime,
+            endTime:_endTime
+        });
     }
 
     function _authorizeUpgrade(address) internal override onlyOwner {}
 
-    function changeRoot(bytes32 _root) external onlyOwner(){
-        merkleRoot = _root;
+    function changeRoundInfo(uint8 _round,address _tokenAddress,bytes32 _merkleRoot,uint256 _startTime,uint256 _endTime) external onlyOwner(){
+        roundInfos[_round] =RoundInfo({
+            tokenAddr:_tokenAddress,
+            merkleRoot:_merkleRoot,
+            startTime:_startTime,
+            endTime:_endTime
+        });
+
     }
 
-    function changeTokenAddress(address _tokenAddress) external onlyOwner(){
-        tokenAddr = _tokenAddress;
+    function tokenClaimBack(address _tokenAddr,address _receiver,uint256 _amount) external onlyOwner(){
+        IERC20Upgradeable(_tokenAddr).safeTransfer(_receiver, _amount);
     }
 
-    function changeTime(uint256 _startTime,uint256 _stopTime) external onlyOwner(){
-        startTime = _startTime;
-        endTime = _stopTime;
-    }
-
-    function tokenClaimBack(address receiver,uint256 amount) external onlyOwner(){
-        IERC20Upgradeable(tokenAddr).safeTransfer(receiver, amount);
-    }
-
-    modifier isValidTime() {
-        require(startTime <= block.timestamp && block.timestamp <= endTime,"wrong time");
+    modifier isValidTime(uint8 _round) {
+        require(roundInfos[_round].startTime <= block.timestamp && block.timestamp <= roundInfos[_round].endTime,"wrong time");
         _;
     }
 
-    function getDrop(bytes32[] calldata merkleProof,uint256 amount,uint8 round) external isValidTime(){
+    function getDrop(bytes32[] calldata _merkleProof,uint256 _amount,uint8 _round) external isValidTime(_round){
         
-        bytes32 leaf = _leaf(msg.sender,round,amount);
+        bytes32 leaf = _leaf(msg.sender,_round,_amount);
 
-        require(_verify(leaf, merkleProof), "Invalid merkle proof");
+        require(_verify(_round,leaf,_merkleProof), "Invalid merkle proof");
         require(!claimed[leaf], "Address already claimed");
 
         claimed[leaf] = true;
-        IERC20Upgradeable(tokenAddr).safeTransfer(msg.sender, amount);
+        IERC20Upgradeable(roundInfos[_round].tokenAddr).safeTransfer(msg.sender, _amount);
 
-        emit Claim(msg.sender, amount, round, block.timestamp);
+        emit Claim(_round, msg.sender, _amount, block.timestamp);
     }
     
     function _leaf(address account, uint8 round,uint256 amount) internal pure returns (bytes32){
         return keccak256(abi.encodePacked(account,amount,round));
     }
 
-    function _verify(bytes32 leaf, bytes32[] memory proof) internal view returns (bool){
-        return MerkleProofUpgradeable.verify(proof, merkleRoot, leaf);
+    function _verify(uint8 _round, bytes32 leaf, bytes32[] memory proof) internal view returns (bool){
+        return MerkleProofUpgradeable.verify(proof, roundInfos[_round].merkleRoot, leaf);
     }
 }
 
