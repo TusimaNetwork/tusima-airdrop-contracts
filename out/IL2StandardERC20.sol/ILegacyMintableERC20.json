@@ -1,0 +1,1024 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "burn",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "l1Token",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "mint",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "burn(address,uint256)": "9dc29fac",
+    "l1Token()": "c01e1bd6",
+    "mint(address,uint256)": "40c10f19",
+    "supportsInterface(bytes4)": "01ffc9a7"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.16+commit.07a7930e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"l1Token\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"burn(address,uint256)\":{\"details\":\"overriden so we can emit Burn, which is part of the IL2StandardERC20 interface\",\"params\":{\"account\":\"address to burn tokens from\",\"amount\":\"amount of tokens to burn\"}},\"l1Token()\":{\"details\":\"this is part of the ILegacyMintableERC20 interface\"},\"mint(address,uint256)\":{\"details\":\"overriden so we can emit Mint, which is part of the IL2StandardERC20 interface\",\"params\":{\"account\":\"address to mint tokens to\",\"amount\":\"amount of tokens to mint\"}},\"supportsInterface(bytes4)\":{\"details\":\"Interface identification is specified in ERC-165. This function  uses less than 30,000 gas.\",\"params\":{\"interfaceId\":\"The interface identifier, as specified in ERC-165\"},\"returns\":{\"_0\":\"`true` if the contract implements `interfaceID` and  `interfaceID` is not 0xffffffff, `false` otherwise\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"burn(address,uint256)\":{\"notice\":\"burns tokens on L2\"},\"l1Token()\":{\"notice\":\"returns the address of the paired ERC20 token on L1\"},\"mint(address,uint256)\":{\"notice\":\"mints tokens on L2\"},\"supportsInterface(bytes4)\":{\"notice\":\"Query if a contract implements an interface\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/interfaces/utils/IL2StandardERC20.sol\":\"ILegacyMintableERC20\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@diamond/=lib/diamond-2-hardhat/contracts/\",\":@ds-test/=lib/ds-test/src/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@oz-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/\",\":@oz/=lib/openzeppelin-contracts/contracts/\",\":diamond-2-hardhat/=lib/diamond-2-hardhat/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts-upgradeable/lib/erc4626-tests/\",\":eth-gas-reporter/=node_modules/eth-gas-reporter/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\",\":openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts-upgradeable/contracts/\"]},\"sources\":{\"contracts/interfaces/utils/IL2StandardERC20.sol\":{\"keccak256\":\"0xe544f480fb2700781f453b51cbe93b23da081e7716377746a3be2dc555be4fb2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://40d5886a596cb58d43c61c26458c5c51b7e9e38aeb94f901cd05542a852d8ed4\",\"dweb:/ipfs/QmerAGFSKe9k5FWN9pJLnhjaZxrn4Ejx1SjiWkznpvHLBg\"]},\"lib/diamond-2-hardhat/contracts/interfaces/IERC165.sol\":{\"keccak256\":\"0x7541f7408d0f74162bc4664d5e012427f2ceaab2abadca0353269ef15ee03d8b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a8e7a34b3ea39f4c0dfa6f5ace5d9415e4d0c90cb3f4264e6946b808f2d4011c\",\"dweb:/ipfs/QmWdcRF4krMMb1ua3hmV8avdHKYa4XXt1iw7sxx1ntsEJa\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.16+commit.07a7930e"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "burn"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "l1Token",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "mint"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes4",
+              "name": "interfaceId",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "supportsInterface",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "burn(address,uint256)": {
+            "details": "overriden so we can emit Burn, which is part of the IL2StandardERC20 interface",
+            "params": {
+              "account": "address to burn tokens from",
+              "amount": "amount of tokens to burn"
+            }
+          },
+          "l1Token()": {
+            "details": "this is part of the ILegacyMintableERC20 interface"
+          },
+          "mint(address,uint256)": {
+            "details": "overriden so we can emit Mint, which is part of the IL2StandardERC20 interface",
+            "params": {
+              "account": "address to mint tokens to",
+              "amount": "amount of tokens to mint"
+            }
+          },
+          "supportsInterface(bytes4)": {
+            "details": "Interface identification is specified in ERC-165. This function  uses less than 30,000 gas.",
+            "params": {
+              "interfaceId": "The interface identifier, as specified in ERC-165"
+            },
+            "returns": {
+              "_0": "`true` if the contract implements `interfaceID` and  `interfaceID` is not 0xffffffff, `false` otherwise"
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "burn(address,uint256)": {
+            "notice": "burns tokens on L2"
+          },
+          "l1Token()": {
+            "notice": "returns the address of the paired ERC20 token on L1"
+          },
+          "mint(address,uint256)": {
+            "notice": "mints tokens on L2"
+          },
+          "supportsInterface(bytes4)": {
+            "notice": "Query if a contract implements an interface"
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@diamond/=lib/diamond-2-hardhat/contracts/",
+        ":@ds-test/=lib/ds-test/src/",
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":@oz-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/",
+        ":@oz/=lib/openzeppelin-contracts/contracts/",
+        ":diamond-2-hardhat/=lib/diamond-2-hardhat/contracts/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":erc4626-tests/=lib/openzeppelin-contracts-upgradeable/lib/erc4626-tests/",
+        ":eth-gas-reporter/=node_modules/eth-gas-reporter/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat/=node_modules/hardhat/",
+        ":openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/",
+        ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+        ":openzeppelin/=lib/openzeppelin-contracts-upgradeable/contracts/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "contracts/interfaces/utils/IL2StandardERC20.sol": "ILegacyMintableERC20"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/interfaces/utils/IL2StandardERC20.sol": {
+        "keccak256": "0xe544f480fb2700781f453b51cbe93b23da081e7716377746a3be2dc555be4fb2",
+        "urls": [
+          "bzz-raw://40d5886a596cb58d43c61c26458c5c51b7e9e38aeb94f901cd05542a852d8ed4",
+          "dweb:/ipfs/QmerAGFSKe9k5FWN9pJLnhjaZxrn4Ejx1SjiWkznpvHLBg"
+        ],
+        "license": "MIT"
+      },
+      "lib/diamond-2-hardhat/contracts/interfaces/IERC165.sol": {
+        "keccak256": "0x7541f7408d0f74162bc4664d5e012427f2ceaab2abadca0353269ef15ee03d8b",
+        "urls": [
+          "bzz-raw://a8e7a34b3ea39f4c0dfa6f5ace5d9415e4d0c90cb3f4264e6946b808f2d4011c",
+          "dweb:/ipfs/QmWdcRF4krMMb1ua3hmV8avdHKYa4XXt1iw7sxx1ntsEJa"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/interfaces/utils/IL2StandardERC20.sol",
+    "id": 3731,
+    "exportedSymbols": {
+      "IERC165": [
+        6719
+      ],
+      "IL2StandardERC20": [
+        3730
+      ],
+      "ILegacyMintableERC20": [
+        3693
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "32:1709:25",
+    "nodes": [
+      {
+        "id": 3666,
+        "nodeType": "PragmaDirective",
+        "src": "32:23:25",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.8",
+          ".16"
+        ]
+      },
+      {
+        "id": 3668,
+        "nodeType": "ImportDirective",
+        "src": "57:56:25",
+        "nodes": [],
+        "absolutePath": "lib/diamond-2-hardhat/contracts/interfaces/IERC165.sol",
+        "file": "@diamond/interfaces/IERC165.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 3731,
+        "sourceUnit": 6720,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 3667,
+              "name": "IERC165",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 6719,
+              "src": "65:7:25",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 3693,
+        "nodeType": "ContractDefinition",
+        "src": "115:836:25",
+        "nodes": [
+          {
+            "id": 3676,
+            "nodeType": "FunctionDefinition",
+            "src": "309:46:25",
+            "nodes": [],
+            "documentation": {
+              "id": 3671,
+              "nodeType": "StructuredDocumentation",
+              "src": "163:141:25",
+              "text": " @notice returns the address of the paired ERC20 token on L1\n @dev this is part of the ILegacyMintableERC20 interface"
+            },
+            "functionSelector": "c01e1bd6",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "l1Token",
+            "nameLocation": "318:7:25",
+            "parameters": {
+              "id": 3672,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "325:2:25"
+            },
+            "returnParameters": {
+              "id": 3675,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3674,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3676,
+                  "src": "346:7:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3673,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "346:7:25",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "345:9:25"
+            },
+            "scope": 3693,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 3684,
+            "nodeType": "FunctionDefinition",
+            "src": "595:56:25",
+            "nodes": [],
+            "documentation": {
+              "id": 3677,
+              "nodeType": "StructuredDocumentation",
+              "src": "360:230:25",
+              "text": " @notice mints tokens on L2\n @param account address to mint tokens to\n @param amount amount of tokens to mint\n @dev overriden so we can emit Mint, which is part of the IL2StandardERC20 interface"
+            },
+            "functionSelector": "40c10f19",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "mint",
+            "nameLocation": "604:4:25",
+            "parameters": {
+              "id": 3682,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3679,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "617:7:25",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3684,
+                  "src": "609:15:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3678,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "609:7:25",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3681,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "634:6:25",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3684,
+                  "src": "626:14:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3680,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "626:7:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "608:33:25"
+            },
+            "returnParameters": {
+              "id": 3683,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "650:0:25"
+            },
+            "scope": 3693,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 3692,
+            "nodeType": "FunctionDefinition",
+            "src": "893:56:25",
+            "nodes": [],
+            "documentation": {
+              "id": 3685,
+              "nodeType": "StructuredDocumentation",
+              "src": "656:232:25",
+              "text": " @notice burns tokens on L2\n @param account address to burn tokens from\n @param amount amount of tokens to burn\n @dev overriden so we can emit Burn, which is part of the IL2StandardERC20 interface"
+            },
+            "functionSelector": "9dc29fac",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "burn",
+            "nameLocation": "902:4:25",
+            "parameters": {
+              "id": 3690,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3687,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "915:7:25",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3692,
+                  "src": "907:15:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3686,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "907:7:25",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3689,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "932:6:25",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3692,
+                  "src": "924:14:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3688,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "924:7:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "906:33:25"
+            },
+            "returnParameters": {
+              "id": 3691,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "948:0:25"
+            },
+            "scope": 3693,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 3669,
+              "name": "IERC165",
+              "nameLocations": [
+                "149:7:25"
+              ],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 6719,
+              "src": "149:7:25"
+            },
+            "id": 3670,
+            "nodeType": "InheritanceSpecifier",
+            "src": "149:7:25"
+          }
+        ],
+        "canonicalName": "ILegacyMintableERC20",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          3693,
+          6719
+        ],
+        "name": "ILegacyMintableERC20",
+        "nameLocation": "125:20:25",
+        "scope": 3731,
+        "usedErrors": []
+      },
+      {
+        "id": 3730,
+        "nodeType": "ContractDefinition",
+        "src": "953:787:25",
+        "nodes": [
+          {
+            "id": 3702,
+            "nodeType": "EventDefinition",
+            "src": "1068:77:25",
+            "nodes": [],
+            "anonymous": false,
+            "documentation": {
+              "id": 3696,
+              "nodeType": "StructuredDocumentation",
+              "src": "1010:53:25",
+              "text": "@dev emitted when the L1 token address is updated"
+            },
+            "eventSelector": "2c718543b67feaa6cc2f7d2e8a80d03b83ac2441e0d84ee2defc766f137e2345",
+            "name": "L1TokenUpdated",
+            "nameLocation": "1074:14:25",
+            "parameters": {
+              "id": 3701,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3698,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "oldL1Token",
+                  "nameLocation": "1105:10:25",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3702,
+                  "src": "1089:26:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3697,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1089:7:25",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3700,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "newL1Token",
+                  "nameLocation": "1133:10:25",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3702,
+                  "src": "1117:26:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3699,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1117:7:25",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1088:56:25"
+            }
+          },
+          {
+            "id": 3709,
+            "nodeType": "EventDefinition",
+            "src": "1209:80:25",
+            "nodes": [],
+            "anonymous": false,
+            "documentation": {
+              "id": 3703,
+              "nodeType": "StructuredDocumentation",
+              "src": "1150:54:25",
+              "text": "@dev emitted when the L2 bridge address is updated"
+            },
+            "eventSelector": "fbeaf70015f6ad12833bc6726f03af9bb91a7ee52827c6413c6c250c77854c95",
+            "name": "L2BridgeUpdated",
+            "nameLocation": "1215:15:25",
+            "parameters": {
+              "id": 3708,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3705,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "oldL2Bridge",
+                  "nameLocation": "1247:11:25",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3709,
+                  "src": "1231:27:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3704,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1231:7:25",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3707,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "newL2Bridge",
+                  "nameLocation": "1276:11:25",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3709,
+                  "src": "1260:27:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3706,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1260:7:25",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1230:58:25"
+            }
+          },
+          {
+            "id": 3716,
+            "nodeType": "EventDefinition",
+            "src": "1338:54:25",
+            "nodes": [],
+            "anonymous": false,
+            "documentation": {
+              "id": 3710,
+              "nodeType": "StructuredDocumentation",
+              "src": "1294:39:25",
+              "text": "@dev emitted when tokens are minted"
+            },
+            "eventSelector": "0f6798a560793a54c3bcfe86a93cde1e73087d944c0ea20544137d4121396885",
+            "name": "Mint",
+            "nameLocation": "1344:4:25",
+            "parameters": {
+              "id": 3715,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3712,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_account",
+                  "nameLocation": "1365:8:25",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3716,
+                  "src": "1349:24:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3711,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1349:7:25",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3714,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nameLocation": "1383:7:25",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3716,
+                  "src": "1375:15:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3713,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1375:7:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1348:43:25"
+            }
+          },
+          {
+            "id": 3723,
+            "nodeType": "EventDefinition",
+            "src": "1441:54:25",
+            "nodes": [],
+            "anonymous": false,
+            "documentation": {
+              "id": 3717,
+              "nodeType": "StructuredDocumentation",
+              "src": "1397:39:25",
+              "text": "@dev emitted when tokens are burned"
+            },
+            "eventSelector": "cc16f5dbb4873280815c1ee09dbd06736cffcc184412cf7a71a0fdb75d397ca5",
+            "name": "Burn",
+            "nameLocation": "1447:4:25",
+            "parameters": {
+              "id": 3722,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3719,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_account",
+                  "nameLocation": "1468:8:25",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3723,
+                  "src": "1452:24:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3718,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1452:7:25",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3721,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nameLocation": "1486:7:25",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3723,
+                  "src": "1478:15:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3720,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1478:7:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1451:43:25"
+            }
+          },
+          {
+            "id": 3729,
+            "nodeType": "FunctionDefinition",
+            "src": "1691:47:25",
+            "nodes": [],
+            "documentation": {
+              "id": 3724,
+              "nodeType": "StructuredDocumentation",
+              "src": "1501:185:25",
+              "text": " @notice returns the address of the bridge contract on L2\n @dev this is _not_ part of the ILegacyMintableERC20 interface, but is still required for compatibility"
+            },
+            "functionSelector": "ae1f6aaf",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "l2Bridge",
+            "nameLocation": "1700:8:25",
+            "parameters": {
+              "id": 3725,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1708:2:25"
+            },
+            "returnParameters": {
+              "id": 3728,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3727,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3729,
+                  "src": "1729:7:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3726,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1729:7:25",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1728:9:25"
+            },
+            "scope": 3730,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 3694,
+              "name": "ILegacyMintableERC20",
+              "nameLocations": [
+                "983:20:25"
+              ],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 3693,
+              "src": "983:20:25"
+            },
+            "id": 3695,
+            "nodeType": "InheritanceSpecifier",
+            "src": "983:20:25"
+          }
+        ],
+        "canonicalName": "IL2StandardERC20",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          3730,
+          3693,
+          6719
+        ],
+        "name": "IL2StandardERC20",
+        "nameLocation": "963:16:25",
+        "scope": 3731,
+        "usedErrors": []
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 25
+}

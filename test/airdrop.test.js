@@ -12,7 +12,7 @@ describe("OPDrop", function () {
 
   before(async function () {
     [deployer, receiver, addr1, addr2, addr3] = await ethers.getSigners();
-    const deployment = require("../scripts/deployOPDrop.js");
+    const deployment = require("../scripts/deployTusimaArbDrop.js");
 
     deployments = await deployment.execute();
   });
@@ -36,8 +36,7 @@ describe("OPDrop", function () {
     const weiValues = ethers.utils.parseUnits(amount.toString(), "ether");
     return web3.utils.soliditySha3(
       { t: "address", v: account },
-      { t: "uint256", v: weiValues },
-      { t: "uint8", v: round }
+      { t: "uint256", v: weiValues }
     );
   }
 
@@ -45,17 +44,17 @@ describe("OPDrop", function () {
     it("should mint token successfully", async function () {
       const billionEther = ethers.utils.parseUnits("100000000", "ether");
       await deployments.tsm.mint(
-        await deployments.opDrop.address,
+        await deployments.tusimaAirDrop.address,
         billionEther
       );
 
       expect(
-        await deployments.tsm.balanceOf(deployments.opDrop.address)
+        await deployments.tsm.balanceOf(deployments.tusimaAirDrop.address)
       ).to.equal(billionEther);
     });
     it("should build merkleTree successfully", async function () {
       this.leafs = tokenInfo.map((token) =>
-        webHashToken(token.account, token.amount, token.round)
+        webHashToken(token.account, token.amount)
       );
       this.merkletree = new MerkleTree(this.leafs, keccak256, {
         sortPairs: true,
@@ -71,7 +70,7 @@ describe("OPDrop", function () {
       console.log(this.root);
 
       //change root
-      await deployments.opDrop.changeRoot(this.root);
+      await deployments.tusimaAirDrop.updateMerkleRoot(this.root);
     });
 
     it("should get merkletree proof successfully", async function () {
@@ -92,13 +91,13 @@ describe("OPDrop", function () {
         tokenInfo[4].amount.toString(),
         "ether"
       );
-      await deployments.opDrop
+      await deployments.tusimaAirDrop
         .connect(addr3)
         .getDrop(this.proof, dropValue, tokenInfo[4].round);
       expect(await deployments.tsm.balanceOf(addr3.address)).to.equal(
         dropValue
       );
-      expect(await deployments.opDrop.claimed(this.leafs[4])).to.equal(true);
+      expect(await deployments.tusimaAirDrop.claimed(this.leafs[4])).to.equal(true);
     });
     // it("should print ten address", async function () {
     //   for (let index = 0; index < 12; index++) {

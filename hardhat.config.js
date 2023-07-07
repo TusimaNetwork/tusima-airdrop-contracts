@@ -1,6 +1,7 @@
 require("dotenv").config({ override: true });
 require("@nomicfoundation/hardhat-toolbox");
 require("@openzeppelin/hardhat-upgrades");
+require("@nomicfoundation/hardhat-foundry");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -10,7 +11,7 @@ module.exports = {
         version: "0.8.16",
         settings: {
           optimizer: {
-            enabled: false,
+            enabled: true,
             runs: 200,
           },
         },
@@ -64,8 +65,7 @@ module.exports = {
   },
   etherscan: {
     apiKey: {
-      arbitrumGoerli: process.env.ARBITRUM_API_KEY,
-      optimismGoerli: process.env.OPTIMISM_API_KEY,
+      optimisticGoerli: process.env.OPTIMISM_API_KEY,
     },
   },
 };
