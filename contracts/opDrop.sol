@@ -11,16 +11,16 @@ import "@openzeppelin/contracts-upgradeable/utils/cryptography/MerkleProofUpgrad
 contract OPDrop is Initializable,OwnableUpgradeable,UUPSUpgradeable{
     using SafeERC20Upgradeable for IERC20Upgradeable;
 
-    uint8 public nowRound;
+    uint8 public currRound;
     address public tokenAddr;
     bytes32 public merkleRoot;
 
-    struct RoundTime{
-        uint256 startTime;
-        uint256 endTime;
+    struct Round{
+        uint256 start;
+        uint256 end;
     }
 
-    mapping(uint8=>RoundTime) public roundTimes;
+    mapping(uint8=>Round) public roundMap;
     mapping(address=> mapping(uint8=>bool)) public claimed;
 
     /// @custom:oz-upgrades-unsafe-allow constructor
@@ -28,7 +28,7 @@ contract OPDrop is Initializable,OwnableUpgradeable,UUPSUpgradeable{
         _disableInitializers();
     }
     
-    event Claim(uint8 round,address claimer,uint256 amount,uint256 timestamp);
+    event Claim(uint8 round, address claimer, uint256 amount);
 
     function initialize() public initializer {
         __Ownable_init();
@@ -37,44 +37,47 @@ contract OPDrop is Initializable,OwnableUpgradeable,UUPSUpgradeable{
 
     function _authorizeUpgrade(address) internal override onlyOwner {}
 
-    function changeRoundTime(uint8 _round,uint256 _startTime,uint256 _endTime) external onlyOwner(){
-        roundTimes[_round] =RoundTime({
-            startTime:_startTime,
-            endTime:_endTime
-        });
+    function newRound(uint256 _star, uint256 _end) external onlyOwner(){
+        require(block.timestamp > roundMap[currRound].end, "cannot create new round");
+        currRound += 1;
+        roundMap[currRound] = Round(_star, _end);
     }
-    function changeTokenAddr(address _tokenAddress) external onlyOwner(){
+
+    function updateRound(uint256 _start, uint256 _end) external onlyOwner(){
+        uint8 round = currRound;
+        require(_start > 0 && _start < _end, "invalid round");
+        roundMap[round].start = _start;
+        roundMap[round].end = _end;
+    }
+
+    function updateMerkleRoot(bytes32 _merkleRoot) external onlyOwner(){
+        merkleRoot = _merkleRoot;
+    }
+
+    function claim(bytes32[] calldata _merkleProof,uint256 _amount) external {
+        require(
+            roundMap[currRound].start <= block.timestamp && 
+            block.timestamp <= roundMap[currRound].end, 
+            "wrong time"
+        );
+        require(!claimed[msg.sender][currRound], "Address already claimed");
+
+        bytes32 leaf = _leaf(msg.sender, _amount);
+        require(_verify(leaf, _merkleProof), "Invalid merkle proof");
+        
+        claimed[msg.sender][currRound] = true;
+        IERC20Upgradeable(tokenAddr).safeTransfer(msg.sender, _amount);
+
+        emit Claim(currRound, msg.sender, _amount);
+    }
+
+    function setTokenAddr(address _tokenAddress) external onlyOwner(){
         tokenAddr = _tokenAddress;
     }
 
-    function changeNowRound(uint8 _nowRound) external onlyOwner(){
-        nowRound = _nowRound;
-    }
-
-    function changeMerkleRoot(bytes32 _merkleRoot) external onlyOwner(){
-        merkleRoot=_merkleRoot;
-    }
-
-    function tokenClaimBack(address _tokenAddr,address _receiver,uint256 _amount) external onlyOwner(){
+    function tokenClaimBack(address _tokenAddr, address _receiver, uint256 _amount) external onlyOwner(){
+        require(roundMap[currRound].end < block.timestamp, "cannot claim");
         IERC20Upgradeable(_tokenAddr).safeTransfer(_receiver, _amount);
-    }
-
-    modifier isValidTime() {
-        require(roundTimes[nowRound].startTime <= block.timestamp && block.timestamp <= roundTimes[nowRound].endTime,"wrong time");
-        _;
-    }
-
-    function getDrop(bytes32[] calldata _merkleProof,uint256 _amount) external isValidTime(){
-        
-        bytes32 leaf = _leaf(msg.sender,_amount);
-
-        require(_verify(leaf,_merkleProof), "Invalid merkle proof");
-        require(!claimed[msg.sender][nowRound], "Address already claimed");
-
-        claimed[msg.sender][nowRound] = true;
-        IERC20Upgradeable(tokenAddr).safeTransfer(msg.sender, _amount);
-
-        emit Claim(nowRound, msg.sender, _amount, block.timestamp);
     }
     
     function _leaf(address account,uint256 amount) internal pure returns (bytes32){
