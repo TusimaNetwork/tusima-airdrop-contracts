@@ -2,19 +2,30 @@ require("dotenv").config({ override: true });
 require("@nomicfoundation/hardhat-toolbox");
 require("@openzeppelin/hardhat-upgrades");
 require("@nomicfoundation/hardhat-foundry");
+const fs = require("fs");
+const Web3 = require("web3");
+const { StandardMerkleTree } = require("@openzeppelin/merkle-tree");
 
-task("build", "transfer data from excel to json")
-  .setAction(async () => {
-    const xlsx = require("node-xlsx");
-    const StandardMerkleTree = require("@openzeppelin/merkle-tree");
+task("build", "transfer data from excel to json").setAction(async () => {
+  const xlsx = require("node-xlsx");
+  const excelFilePath = "./airdrop.xlsx";
+  const sheets = xlsx.parse(excelFilePath);
+  const sheet = sheets[0];
+  console.log(sheet.data);
+  const tree = StandardMerkleTree.of(sheet.data, ["address", "uint256"]);
+  await fs.writeFileSync("airDrop.json", JSON.stringify(tree.dump()));
 
-    const excelFilePath = "./airdrop.xlsx";
-    const sheets = xlsx.parse(excelFilePath);
-    const sheet = sheets[0];
-    console.log(sheet);
-    const tree = StandardMerkleTree.of(sheet, ["address", "uint256"]);
-    console.log(tree);
+  const web3 = new Web3("https://mainnet.infura.io/v3/YOUR_PROJECT_ID");
+  const abi = JSON.parse("./contracts/artifacts/ArbDrop.json");
+  const contract = new web3.eth.Contract(abi, process.env.airDropAddress);
+  await contract.methods.updateMerkleRoot(tree.root).call((error, result) => {
+    if (error) {
+      console.error(error);
+    } else {
+      console.log(result);
+    }
   });
+});
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -82,4 +93,3 @@ module.exports = {
     },
   },
 };
-
