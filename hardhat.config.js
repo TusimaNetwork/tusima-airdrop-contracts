@@ -3,6 +3,19 @@ require("@nomicfoundation/hardhat-toolbox");
 require("@openzeppelin/hardhat-upgrades");
 require("@nomicfoundation/hardhat-foundry");
 
+task("build", "transfer data from excel to json")
+  .setAction(async () => {
+    const xlsx = require("node-xlsx");
+    const StandardMerkleTree = require("@openzeppelin/merkle-tree");
+
+    const excelFilePath = "./airdrop.xlsx";
+    const sheets = xlsx.parse(excelFilePath);
+    const sheet = sheets[0];
+    console.log(sheet);
+    const tree = StandardMerkleTree.of(sheet, ["address", "uint256"]);
+    console.log(tree);
+  });
+
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: {
@@ -69,3 +82,4 @@ module.exports = {
     },
   },
 };
+

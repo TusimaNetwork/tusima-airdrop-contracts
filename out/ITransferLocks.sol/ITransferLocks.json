@@ -608,19 +608,19 @@
   },
   "ast": {
     "absolutePath": "contracts/interfaces/ITransferLocks.sol",
-    "id": 3549,
+    "id": 422,
     "exportedSymbols": {
       "ITransferLocks": [
-        3548
+        421
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "32:4504:22",
+    "src": "32:4504:3",
     "nodes": [
       {
-        "id": 3454,
+        "id": 327,
         "nodeType": "PragmaDirective",
-        "src": "32:23:22",
+        "src": "32:23:3",
         "nodes": [],
         "literals": [
           "solidity",
@@ -629,19 +629,19 @@
         ]
       },
       {
-        "id": 3548,
+        "id": 421,
         "nodeType": "ContractDefinition",
-        "src": "57:4478:22",
+        "src": "57:4478:3",
         "nodes": [
           {
-            "id": 3462,
+            "id": 335,
             "nodeType": "FunctionDefinition",
-            "src": "524:68:22",
+            "src": "524:68:3",
             "nodes": [],
             "documentation": {
-              "id": 3455,
+              "id": 328,
               "nodeType": "StructuredDocumentation",
-              "src": "88:431:22",
+              "src": "88:431:3",
               "text": " @notice Used to voluntarily lock up `amount` tokens until a given time. Tokens in excess of `amount` may be transferred.\n @dev Block timestamp may be innaccurate by up to 15 minutes, but on a timescale of years this is negligible.\n @param amount the amount of tokens to restrict the transfer of.\n @param deadline the date (as a unix timestamp in UTC) until which amount will be untransferrable."
             },
             "functionSelector": "e672ce3a",
@@ -649,20 +649,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "addTransferLock",
-            "nameLocation": "533:15:22",
+            "nameLocation": "533:15:3",
             "parameters": {
-              "id": 3460,
+              "id": 333,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3457,
+                  "id": 330,
                   "mutability": "mutable",
                   "name": "amount",
-                  "nameLocation": "557:6:22",
+                  "nameLocation": "557:6:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3462,
-                  "src": "549:14:22",
+                  "scope": 335,
+                  "src": "549:14:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -670,10 +670,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3456,
+                    "id": 329,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "549:7:22",
+                    "src": "549:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -683,13 +683,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 3459,
+                  "id": 332,
                   "mutability": "mutable",
                   "name": "deadline",
-                  "nameLocation": "573:8:22",
+                  "nameLocation": "573:8:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3462,
-                  "src": "565:16:22",
+                  "scope": 335,
+                  "src": "565:16:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -697,10 +697,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3458,
+                    "id": 331,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "565:7:22",
+                    "src": "565:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -709,28 +709,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "548:34:22"
+              "src": "548:34:3"
             },
             "returnParameters": {
-              "id": 3461,
+              "id": 334,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "591:0:22"
+              "src": "591:0:3"
             },
-            "scope": 3548,
+            "scope": 421,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 3472,
+            "id": 345,
             "nodeType": "FunctionDefinition",
-            "src": "840:86:22",
+            "src": "840:86:3",
             "nodes": [],
             "documentation": {
-              "id": 3463,
+              "id": 336,
               "nodeType": "StructuredDocumentation",
-              "src": "598:237:22",
+              "src": "598:237:3",
               "text": " @notice Returns the number of transfer locks `account` has permitted `recipient`.\n @param account the address that granted the allowance.\n @param recipient the address that is allowed to add transfer locks."
             },
             "functionSelector": "55b6ed5c",
@@ -738,20 +738,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "allowances",
-            "nameLocation": "849:10:22",
+            "nameLocation": "849:10:3",
             "parameters": {
-              "id": 3468,
+              "id": 341,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3465,
+                  "id": 338,
                   "mutability": "mutable",
                   "name": "account",
-                  "nameLocation": "868:7:22",
+                  "nameLocation": "868:7:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3472,
-                  "src": "860:15:22",
+                  "scope": 345,
+                  "src": "860:15:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -759,10 +759,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3464,
+                    "id": 337,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "860:7:22",
+                    "src": "860:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -773,13 +773,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 3467,
+                  "id": 340,
                   "mutability": "mutable",
                   "name": "recipient",
-                  "nameLocation": "885:9:22",
+                  "nameLocation": "885:9:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3472,
-                  "src": "877:17:22",
+                  "scope": 345,
+                  "src": "877:17:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -787,10 +787,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3466,
+                    "id": 339,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "877:7:22",
+                    "src": "877:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -800,21 +800,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "859:36:22"
+              "src": "859:36:3"
             },
             "returnParameters": {
-              "id": 3471,
+              "id": 344,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3470,
+                  "id": 343,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3472,
-                  "src": "919:5:22",
+                  "scope": 345,
+                  "src": "919:5:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -822,10 +822,10 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 3469,
+                    "id": 342,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
-                    "src": "919:5:22",
+                    "src": "919:5:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
@@ -834,22 +834,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "918:7:22"
+              "src": "918:7:3"
             },
-            "scope": 3548,
+            "scope": 421,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 3480,
+            "id": 353,
             "nodeType": "FunctionDefinition",
-            "src": "1311:79:22",
+            "src": "1311:79:3",
             "nodes": [],
             "documentation": {
-              "id": 3473,
+              "id": 346,
               "nodeType": "StructuredDocumentation",
-              "src": "932:374:22",
+              "src": "932:374:3",
               "text": " @notice Used to increase the number of transfer locks that can be added\n by another address. Only allowing a limited number of locks to be added\n by a given address prevents a variety of potentially abusive patterns.\n @param account the address to increase the allowance for.\n @param amount the amount to increase the allowance by."
             },
             "functionSelector": "6239d4a3",
@@ -857,20 +857,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "increaseTransferLockAllowance",
-            "nameLocation": "1320:29:22",
+            "nameLocation": "1320:29:3",
             "parameters": {
-              "id": 3478,
+              "id": 351,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3475,
+                  "id": 348,
                   "mutability": "mutable",
                   "name": "account",
-                  "nameLocation": "1358:7:22",
+                  "nameLocation": "1358:7:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3480,
-                  "src": "1350:15:22",
+                  "scope": 353,
+                  "src": "1350:15:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -878,10 +878,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3474,
+                    "id": 347,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1350:7:22",
+                    "src": "1350:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -892,13 +892,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 3477,
+                  "id": 350,
                   "mutability": "mutable",
                   "name": "amount",
-                  "nameLocation": "1373:6:22",
+                  "nameLocation": "1373:6:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3480,
-                  "src": "1367:12:22",
+                  "scope": 353,
+                  "src": "1367:12:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -906,10 +906,10 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 3476,
+                    "id": 349,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1367:5:22",
+                    "src": "1367:5:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
@@ -918,28 +918,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1349:31:22"
+              "src": "1349:31:3"
             },
             "returnParameters": {
-              "id": 3479,
+              "id": 352,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1389:0:22"
+              "src": "1389:0:3"
             },
-            "scope": 3548,
+            "scope": 421,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 3488,
+            "id": 361,
             "nodeType": "FunctionDefinition",
-            "src": "1826:79:22",
+            "src": "1826:79:3",
             "nodes": [],
             "documentation": {
-              "id": 3481,
+              "id": 354,
               "nodeType": "StructuredDocumentation",
-              "src": "1396:425:22",
+              "src": "1396:425:3",
               "text": " @notice Used to decrease the number of transfer locks that can be added\n by another address. This cannot be used to revoke or otherwise remove an\n existing transfer lock, only to reduce the number of additional locks\n that can be added by the specified account.\n @param account the address to decrease the allowance for.\n @param amount the amount to decrease the allowance by."
             },
             "functionSelector": "1f1eb79b",
@@ -947,20 +947,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "decreaseTransferLockAllowance",
-            "nameLocation": "1835:29:22",
+            "nameLocation": "1835:29:3",
             "parameters": {
-              "id": 3486,
+              "id": 359,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3483,
+                  "id": 356,
                   "mutability": "mutable",
                   "name": "account",
-                  "nameLocation": "1873:7:22",
+                  "nameLocation": "1873:7:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3488,
-                  "src": "1865:15:22",
+                  "scope": 361,
+                  "src": "1865:15:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -968,10 +968,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3482,
+                    "id": 355,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1865:7:22",
+                    "src": "1865:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -982,13 +982,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 3485,
+                  "id": 358,
                   "mutability": "mutable",
                   "name": "amount",
-                  "nameLocation": "1888:6:22",
+                  "nameLocation": "1888:6:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3488,
-                  "src": "1882:12:22",
+                  "scope": 361,
+                  "src": "1882:12:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -996,10 +996,10 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 3484,
+                    "id": 357,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1882:5:22",
+                    "src": "1882:5:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
@@ -1008,28 +1008,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1864:31:22"
+              "src": "1864:31:3"
             },
             "returnParameters": {
-              "id": 3487,
+              "id": 360,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1904:0:22"
+              "src": "1904:0:3"
             },
-            "scope": 3548,
+            "scope": 421,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 3496,
+            "id": 369,
             "nodeType": "FunctionDefinition",
-            "src": "2163:86:22",
+            "src": "2163:86:3",
             "nodes": [],
             "documentation": {
-              "id": 3489,
+              "id": 362,
               "nodeType": "StructuredDocumentation",
-              "src": "1911:247:22",
+              "src": "1911:247:3",
               "text": " @notice Returns the total amount locked up as of current block.timestamp. Returns 0 if there are no transfer locks.\n @param account the address to check.\n @return amount the amount of tokens that are transfer-locked."
             },
             "functionSelector": "2909ae01",
@@ -1037,20 +1037,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "getTransferLockTotal",
-            "nameLocation": "2172:20:22",
+            "nameLocation": "2172:20:3",
             "parameters": {
-              "id": 3492,
+              "id": 365,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3491,
+                  "id": 364,
                   "mutability": "mutable",
                   "name": "account",
-                  "nameLocation": "2201:7:22",
+                  "nameLocation": "2201:7:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3496,
-                  "src": "2193:15:22",
+                  "scope": 369,
+                  "src": "2193:15:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1058,10 +1058,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3490,
+                    "id": 363,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2193:7:22",
+                    "src": "2193:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1071,21 +1071,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2192:17:22"
+              "src": "2192:17:3"
             },
             "returnParameters": {
-              "id": 3495,
+              "id": 368,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3494,
+                  "id": 367,
                   "mutability": "mutable",
                   "name": "amount",
-                  "nameLocation": "2241:6:22",
+                  "nameLocation": "2241:6:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3496,
-                  "src": "2233:14:22",
+                  "scope": 369,
+                  "src": "2233:14:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1093,10 +1093,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3493,
+                    "id": 366,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2233:7:22",
+                    "src": "2233:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1105,22 +1105,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2232:16:22"
+              "src": "2232:16:3"
             },
-            "scope": 3548,
+            "scope": 421,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 3506,
+            "id": 379,
             "nodeType": "FunctionDefinition",
-            "src": "2554:107:22",
+            "src": "2554:107:3",
             "nodes": [],
             "documentation": {
-              "id": 3497,
+              "id": 370,
               "nodeType": "StructuredDocumentation",
-              "src": "2255:294:22",
+              "src": "2255:294:3",
               "text": " @notice Returns the total amount locked up as of the given timestamp. Returns 0 if there are no transfer locks.\n @param account the address to check.\n @param timestamp the timestamp to check at.\n @return amount the amount of tokens that are transfer-locked."
             },
             "functionSelector": "d90964cd",
@@ -1128,20 +1128,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "getTransferLockTotalAt",
-            "nameLocation": "2563:22:22",
+            "nameLocation": "2563:22:3",
             "parameters": {
-              "id": 3502,
+              "id": 375,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3499,
+                  "id": 372,
                   "mutability": "mutable",
                   "name": "account",
-                  "nameLocation": "2594:7:22",
+                  "nameLocation": "2594:7:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3506,
-                  "src": "2586:15:22",
+                  "scope": 379,
+                  "src": "2586:15:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1149,10 +1149,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3498,
+                    "id": 371,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2586:7:22",
+                    "src": "2586:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1163,13 +1163,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 3501,
+                  "id": 374,
                   "mutability": "mutable",
                   "name": "timestamp",
-                  "nameLocation": "2611:9:22",
+                  "nameLocation": "2611:9:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3506,
-                  "src": "2603:17:22",
+                  "scope": 379,
+                  "src": "2603:17:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1177,10 +1177,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3500,
+                    "id": 373,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2603:7:22",
+                    "src": "2603:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1189,21 +1189,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2585:36:22"
+              "src": "2585:36:3"
             },
             "returnParameters": {
-              "id": 3505,
+              "id": 378,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3504,
+                  "id": 377,
                   "mutability": "mutable",
                   "name": "amount",
-                  "nameLocation": "2653:6:22",
+                  "nameLocation": "2653:6:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3506,
-                  "src": "2645:14:22",
+                  "scope": 379,
+                  "src": "2645:14:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1211,10 +1211,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3503,
+                    "id": 376,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2645:7:22",
+                    "src": "2645:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1223,22 +1223,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2644:16:22"
+              "src": "2644:16:3"
             },
-            "scope": 3548,
+            "scope": 421,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 3514,
+            "id": 387,
             "nodeType": "FunctionDefinition",
-            "src": "2898:85:22",
+            "src": "2898:85:3",
             "nodes": [],
             "documentation": {
-              "id": 3507,
+              "id": 380,
               "nodeType": "StructuredDocumentation",
-              "src": "2667:226:22",
+              "src": "2667:226:3",
               "text": " @notice Returns the amount of tokens that are not locked up as of current block.timestamp.\n @param account the address to check.\n @return amount the amount of tokens that are not transfer-locked."
             },
             "functionSelector": "6c24a76f",
@@ -1246,20 +1246,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "getAvailableBalance",
-            "nameLocation": "2907:19:22",
+            "nameLocation": "2907:19:3",
             "parameters": {
-              "id": 3510,
+              "id": 383,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3509,
+                  "id": 382,
                   "mutability": "mutable",
                   "name": "account",
-                  "nameLocation": "2935:7:22",
+                  "nameLocation": "2935:7:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3514,
-                  "src": "2927:15:22",
+                  "scope": 387,
+                  "src": "2927:15:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1267,10 +1267,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3508,
+                    "id": 381,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2927:7:22",
+                    "src": "2927:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1280,21 +1280,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2926:17:22"
+              "src": "2926:17:3"
             },
             "returnParameters": {
-              "id": 3513,
+              "id": 386,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3512,
+                  "id": 385,
                   "mutability": "mutable",
                   "name": "amount",
-                  "nameLocation": "2975:6:22",
+                  "nameLocation": "2975:6:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3514,
-                  "src": "2967:14:22",
+                  "scope": 387,
+                  "src": "2967:14:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1302,10 +1302,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3511,
+                    "id": 384,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2967:7:22",
+                    "src": "2967:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1314,22 +1314,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2966:16:22"
+              "src": "2966:16:3"
             },
-            "scope": 3548,
+            "scope": 421,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 3524,
+            "id": 397,
             "nodeType": "FunctionDefinition",
-            "src": "3262:106:22",
+            "src": "3262:106:3",
             "nodes": [],
             "documentation": {
-              "id": 3515,
+              "id": 388,
               "nodeType": "StructuredDocumentation",
-              "src": "2989:268:22",
+              "src": "2989:268:3",
               "text": " @notice Retrieves the balance of an account that is not locked at a given timestamp.\n @param account the address to check.\n @param timestamp the timestamp to check.\n @return amount the amount of tokens that are not transfer-locked."
             },
             "functionSelector": "e851b720",
@@ -1337,20 +1337,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "getAvailableBalanceAt",
-            "nameLocation": "3271:21:22",
+            "nameLocation": "3271:21:3",
             "parameters": {
-              "id": 3520,
+              "id": 393,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3517,
+                  "id": 390,
                   "mutability": "mutable",
                   "name": "account",
-                  "nameLocation": "3301:7:22",
+                  "nameLocation": "3301:7:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3524,
-                  "src": "3293:15:22",
+                  "scope": 397,
+                  "src": "3293:15:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1358,10 +1358,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3516,
+                    "id": 389,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3293:7:22",
+                    "src": "3293:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1372,13 +1372,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 3519,
+                  "id": 392,
                   "mutability": "mutable",
                   "name": "timestamp",
-                  "nameLocation": "3318:9:22",
+                  "nameLocation": "3318:9:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3524,
-                  "src": "3310:17:22",
+                  "scope": 397,
+                  "src": "3310:17:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1386,10 +1386,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3518,
+                    "id": 391,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3310:7:22",
+                    "src": "3310:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1398,21 +1398,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3292:36:22"
+              "src": "3292:36:3"
             },
             "returnParameters": {
-              "id": 3523,
+              "id": 396,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3522,
+                  "id": 395,
                   "mutability": "mutable",
                   "name": "amount",
-                  "nameLocation": "3360:6:22",
+                  "nameLocation": "3360:6:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3524,
-                  "src": "3352:14:22",
+                  "scope": 397,
+                  "src": "3352:14:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1420,10 +1420,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3521,
+                    "id": 394,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3352:7:22",
+                    "src": "3352:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1432,22 +1432,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3351:16:22"
+              "src": "3351:16:3"
             },
-            "scope": 3548,
+            "scope": 421,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 3534,
+            "id": 407,
             "nodeType": "FunctionDefinition",
-            "src": "3819:88:22",
+            "src": "3819:88:3",
             "nodes": [],
             "documentation": {
-              "id": 3525,
+              "id": 398,
               "nodeType": "StructuredDocumentation",
-              "src": "3374:440:22",
+              "src": "3374:440:3",
               "text": " @notice Used to transfer tokens to an address and lock them up until a given time.\n @dev block timestamp may be innaccurate by up to 15 minutes, but on the expected timescales, this is negligible.\n @param recipient the address to transfer tokens to.\n @param amount the amount of tokens to transfer.\n @param deadline the date (as a unix timestamp in UTC) until which amount will be untransferrable."
             },
             "functionSelector": "de6baccb",
@@ -1455,20 +1455,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "transferWithLock",
-            "nameLocation": "3828:16:22",
+            "nameLocation": "3828:16:3",
             "parameters": {
-              "id": 3532,
+              "id": 405,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3527,
+                  "id": 400,
                   "mutability": "mutable",
                   "name": "recipient",
-                  "nameLocation": "3853:9:22",
+                  "nameLocation": "3853:9:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3534,
-                  "src": "3845:17:22",
+                  "scope": 407,
+                  "src": "3845:17:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1476,10 +1476,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3526,
+                    "id": 399,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3845:7:22",
+                    "src": "3845:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1490,13 +1490,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 3529,
+                  "id": 402,
                   "mutability": "mutable",
                   "name": "amount",
-                  "nameLocation": "3872:6:22",
+                  "nameLocation": "3872:6:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3534,
-                  "src": "3864:14:22",
+                  "scope": 407,
+                  "src": "3864:14:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1504,10 +1504,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3528,
+                    "id": 401,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3864:7:22",
+                    "src": "3864:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1517,13 +1517,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 3531,
+                  "id": 404,
                   "mutability": "mutable",
                   "name": "deadline",
-                  "nameLocation": "3888:8:22",
+                  "nameLocation": "3888:8:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3534,
-                  "src": "3880:16:22",
+                  "scope": 407,
+                  "src": "3880:16:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1531,10 +1531,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3530,
+                    "id": 403,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3880:7:22",
+                    "src": "3880:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1543,28 +1543,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3844:53:22"
+              "src": "3844:53:3"
             },
             "returnParameters": {
-              "id": 3533,
+              "id": 406,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3906:0:22"
+              "src": "3906:0:3"
             },
-            "scope": 3548,
+            "scope": 421,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 3547,
+            "id": 420,
             "nodeType": "FunctionDefinition",
-            "src": "4373:160:22",
+            "src": "4373:160:3",
             "nodes": [],
             "documentation": {
-              "id": 3535,
+              "id": 408,
               "nodeType": "StructuredDocumentation",
-              "src": "3913:455:22",
+              "src": "3913:455:3",
               "text": " @notice Used to transfer tokens to multiple addresses and lock them up until a given time.\n @dev block timestamp may be innaccurate by up to 15 minutes, but on the expected timescales, this is negligible.\n @param recipients the addresses to transfer tokens to.\n @param amounts the amounts of tokens to transfer.\n @param deadlines the dates (as unix timestamps in UTC) until which amounts will be untransferrable."
             },
             "functionSelector": "3def6038",
@@ -1572,20 +1572,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "batchTransferWithLocks",
-            "nameLocation": "4382:22:22",
+            "nameLocation": "4382:22:3",
             "parameters": {
-              "id": 3545,
+              "id": 418,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3538,
+                  "id": 411,
                   "mutability": "mutable",
                   "name": "recipients",
-                  "nameLocation": "4433:10:22",
+                  "nameLocation": "4433:10:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3547,
-                  "src": "4414:29:22",
+                  "scope": 420,
+                  "src": "4414:29:3",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -1594,19 +1594,19 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 3536,
+                      "id": 409,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
-                      "src": "4414:7:22",
+                      "src": "4414:7:3",
                       "stateMutability": "nonpayable",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "id": 3537,
+                    "id": 410,
                     "nodeType": "ArrayTypeName",
-                    "src": "4414:9:22",
+                    "src": "4414:9:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                       "typeString": "address[]"
@@ -1616,13 +1616,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 3541,
+                  "id": 414,
                   "mutability": "mutable",
                   "name": "amounts",
-                  "nameLocation": "4472:7:22",
+                  "nameLocation": "4472:7:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3547,
-                  "src": "4453:26:22",
+                  "scope": 420,
+                  "src": "4453:26:3",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -1631,18 +1631,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 3539,
+                      "id": 412,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
-                      "src": "4453:7:22",
+                      "src": "4453:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 3540,
+                    "id": 413,
                     "nodeType": "ArrayTypeName",
-                    "src": "4453:9:22",
+                    "src": "4453:9:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -1652,13 +1652,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 3544,
+                  "id": 417,
                   "mutability": "mutable",
                   "name": "deadlines",
-                  "nameLocation": "4508:9:22",
+                  "nameLocation": "4508:9:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3547,
-                  "src": "4489:28:22",
+                  "scope": 420,
+                  "src": "4489:28:3",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -1667,18 +1667,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 3542,
+                      "id": 415,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
-                      "src": "4489:7:22",
+                      "src": "4489:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 3543,
+                    "id": 416,
                     "nodeType": "ArrayTypeName",
-                    "src": "4489:9:22",
+                    "src": "4489:9:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -1687,15 +1687,15 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4404:119:22"
+              "src": "4404:119:3"
             },
             "returnParameters": {
-              "id": 3546,
+              "id": 419,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "4532:0:22"
+              "src": "4532:0:3"
             },
-            "scope": 3548,
+            "scope": 421,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -1708,15 +1708,15 @@
         "contractKind": "interface",
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          3548
+          421
         ],
         "name": "ITransferLocks",
-        "nameLocation": "67:14:22",
-        "scope": 3549,
+        "nameLocation": "67:14:3",
+        "scope": 422,
         "usedErrors": []
       }
     ],
     "license": "MIT"
   },
-  "id": 22
+  "id": 3
 }

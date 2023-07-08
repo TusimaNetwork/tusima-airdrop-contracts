@@ -4,6 +4,7 @@ const { ethers } = require("hardhat");
 const { time } = require("@nomicfoundation/hardhat-network-helpers");
 
 async function main() {
+  const [deployer] = await hre.ethers.getSigners();
   const OrigamiGovernanceToken = await hre.ethers.getContractFactory(
     "OrigamiGovernanceToken"
   );
@@ -14,22 +15,12 @@ async function main() {
     //Since the logic contract has an initialize() function
     // we need to pass in the arguments to the initialize()
     // function here.
-    [
-      "0x8e0c1d7261230adDdF88Ced8bb7E569eBC20510c",
-      "Collab.Land",
-      "COLLAB",
-      "1000000000000000000000000000",
-    ],
+    [deployer.address, "Collab.Land", "COLLAB", "1000000000000000000000000000"],
     // We don't need to expressly specify this
     // as the Hardhat runtime will default to the name 'initialize'
     { initializer: "initialize" }
   );
   await origamiGovernanceToken.deployed();
-
-  // console.log(
-  //   "origamiGovernanceToken deployed to:",
-  //   origamiGovernanceToken.address
-  // );
 
   // proxy address
   const proxyAddress = origamiGovernanceToken.address;

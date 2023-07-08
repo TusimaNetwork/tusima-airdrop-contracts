@@ -19,20 +19,20 @@ describe("OPDrop", function () {
 
   const web3 = new Web3("http://localhost:8545");
 
-  function hashToken(account, amount, round) {
+  function hashToken(account, amount) {
     const weiValues = ethers.utils.parseUnits(amount.toString(), "ether");
     return Buffer.from(
       ethers.utils
         .solidityKeccak256(
-          ["address", "uint256", "uint8"],
-          [account, weiValues, round]
+          ["address", "uint256"],
+          [account, weiValues]
         )
         .slice(2),
       "hex"
     );
   }
 
-  function webHashToken(account, amount, round) {
+  function webHashToken(account, amount) {
     const weiValues = ethers.utils.parseUnits(amount.toString(), "ether");
     return web3.utils.soliditySha3(
       { t: "address", v: account },
@@ -74,12 +74,18 @@ describe("OPDrop", function () {
     });
 
     it("should get merkletree proof successfully", async function () {
-      // leaf = hashToken(
-      //   tokenInfo[4].account,
-      //   tokenInfo[4].amount,
-      //   tokenInfo[4].round
-      // );
       console.log("\nHashToken:", this.leafs[4]);
+
+      const testLeaf = webHashToken(
+        "0x8e0c1d7261230adDdF88Ced8bb7E569eBC20510c",
+        53.2
+      );
+
+      console.log("amount:", ethers.utils.parseUnits("53.2", "ether"));
+
+      console.log("proof:", this.merkletree.getHexProof(testLeaf));
+
+
 
       this.proof = this.merkletree.getHexProof(this.leafs[4]);
       console.log("\nProof:");

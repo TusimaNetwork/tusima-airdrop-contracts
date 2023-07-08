@@ -188,19 +188,19 @@
   },
   "ast": {
     "absolutePath": "contracts/interfaces/IVotesToken.sol",
-    "id": 3665,
+    "id": 538,
     "exportedSymbols": {
       "IVotesToken": [
-        3664
+        537
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "32:774:24",
+    "src": "32:774:5",
     "nodes": [
       {
-        "id": 3642,
+        "id": 515,
         "nodeType": "PragmaDirective",
-        "src": "32:23:24",
+        "src": "32:23:5",
         "nodes": [],
         "literals": [
           "solidity",
@@ -209,19 +209,19 @@
         ]
       },
       {
-        "id": 3664,
+        "id": 537,
         "nodeType": "ContractDefinition",
-        "src": "268:537:24",
+        "src": "268:537:5",
         "nodes": [
           {
-            "id": 3651,
+            "id": 524,
             "nodeType": "FunctionDefinition",
-            "src": "466:74:24",
+            "src": "466:74:5",
             "nodes": [],
             "documentation": {
-              "id": 3644,
+              "id": 517,
               "nodeType": "StructuredDocumentation",
-              "src": "296:165:24",
+              "src": "296:165:5",
               "text": " @notice returns the token balance for an account\n @param owner the account to check\n @return balance the token balance for the account"
             },
             "functionSelector": "70a08231",
@@ -229,20 +229,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "balanceOf",
-            "nameLocation": "475:9:24",
+            "nameLocation": "475:9:5",
             "parameters": {
-              "id": 3647,
+              "id": 520,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3646,
+                  "id": 519,
                   "mutability": "mutable",
                   "name": "owner",
-                  "nameLocation": "493:5:24",
+                  "nameLocation": "493:5:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3651,
-                  "src": "485:13:24",
+                  "scope": 524,
+                  "src": "485:13:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -250,10 +250,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3645,
+                    "id": 518,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "485:7:24",
+                    "src": "485:7:5",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -263,21 +263,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "484:15:24"
+              "src": "484:15:5"
             },
             "returnParameters": {
-              "id": 3650,
+              "id": 523,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3649,
+                  "id": 522,
                   "mutability": "mutable",
                   "name": "balance",
-                  "nameLocation": "531:7:24",
+                  "nameLocation": "531:7:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3651,
-                  "src": "523:15:24",
+                  "scope": 524,
+                  "src": "523:15:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -285,10 +285,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3648,
+                    "id": 521,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "523:7:24",
+                    "src": "523:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -297,22 +297,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "522:17:24"
+              "src": "522:17:5"
             },
-            "scope": 3664,
+            "scope": 537,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 3657,
+            "id": 530,
             "nodeType": "FunctionDefinition",
-            "src": "615:54:24",
+            "src": "615:54:5",
             "nodes": [],
             "documentation": {
-              "id": 3652,
+              "id": 525,
               "nodeType": "StructuredDocumentation",
-              "src": "545:65:24",
+              "src": "545:65:5",
               "text": "@notice returns the token name for compatibility with EIP-712"
             },
             "functionSelector": "06fdde03",
@@ -320,26 +320,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "name",
-            "nameLocation": "624:4:24",
+            "nameLocation": "624:4:5",
             "parameters": {
-              "id": 3653,
+              "id": 526,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "628:2:24"
+              "src": "628:2:5"
             },
             "returnParameters": {
-              "id": 3656,
+              "id": 529,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3655,
+                  "id": 528,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3657,
-                  "src": "654:13:24",
+                  "scope": 530,
+                  "src": "654:13:5",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -347,10 +347,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3654,
+                    "id": 527,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "654:6:24",
+                    "src": "654:6:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -359,22 +359,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "653:15:24"
+              "src": "653:15:5"
             },
-            "scope": 3664,
+            "scope": 537,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 3663,
+            "id": 536,
             "nodeType": "FunctionDefinition",
-            "src": "746:57:24",
+            "src": "746:57:5",
             "nodes": [],
             "documentation": {
-              "id": 3658,
+              "id": 531,
               "nodeType": "StructuredDocumentation",
-              "src": "674:67:24",
+              "src": "674:67:5",
               "text": "@notice returns the token symbol for compatibility with EIP-712"
             },
             "functionSelector": "54fd4d50",
@@ -382,26 +382,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "version",
-            "nameLocation": "755:7:24",
+            "nameLocation": "755:7:5",
             "parameters": {
-              "id": 3659,
+              "id": 532,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "762:2:24"
+              "src": "762:2:5"
             },
             "returnParameters": {
-              "id": 3662,
+              "id": 535,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3661,
+                  "id": 534,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3663,
-                  "src": "788:13:24",
+                  "scope": 536,
+                  "src": "788:13:5",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -409,10 +409,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3660,
+                    "id": 533,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "788:6:24",
+                    "src": "788:6:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -421,9 +421,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "787:15:24"
+              "src": "787:15:5"
             },
-            "scope": 3664,
+            "scope": 537,
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "external"
@@ -435,22 +435,22 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 3643,
+          "id": 516,
           "nodeType": "StructuredDocumentation",
-          "src": "57:210:24",
+          "src": "57:210:5",
           "text": " @title Votes Token Interface\n @author Origami\n @notice Interface for tokens that can be used for voting. Part EIP-712 and part ERC20.\n @custom:security-contact contract-security@joinorigami.com"
         },
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          3664
+          537
         ],
         "name": "IVotesToken",
-        "nameLocation": "278:11:24",
-        "scope": 3665,
+        "nameLocation": "278:11:5",
+        "scope": 538,
         "usedErrors": []
       }
     ],
     "license": "MIT"
   },
-  "id": 24
+  "id": 5
 }

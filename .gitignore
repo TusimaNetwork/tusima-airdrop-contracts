@@ -11,3 +11,8 @@ typechain-types
 cache
 artifacts
 
+# Foundry files
+.openzeppelin
+cache_forge
+out
+

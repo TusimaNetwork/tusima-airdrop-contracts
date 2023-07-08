@@ -7,21 +7,35 @@
 const hre = require("hardhat");
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 60;
+  const deployment = require("./deploy.exe");
+  const deployments = ({ origamiGovernanceToken, tusimaAirDrop } =
+    await deployment.execute());
 
-  const lockedAmount = hre.ethers.parseEther("0.001");
+  console.log(`****** OrigamiGovernanceToken ******`);
+  // proxy address
+  const proxyAddress = origamiGovernanceToken.address;
 
-  const lock = await hre.ethers.deployContract("Lock", [unlockTime], {
-    value: lockedAmount,
-  });
+  // implementationAddress
+  const implementationAddress = await upgrades.erc1967.getImplementationAddress(
+    origamiGovernanceToken.address
+  );
+  // proxyAdmin 合约地址
+  const adminAddress = await upgrades.erc1967.getAdminAddress(
+    origamiGovernanceToken.address
+  );
 
-  await lock.waitForDeployment();
+  console.log(`proxyAddress: ${proxyAddress}`);
+  console.log(`implementationAddress: ${implementationAddress}`);
+  console.log(`adminAddress: ${adminAddress}`);
+
+  console.log(`****** TusimaAirDrop ******`);
+  console.log("proxyAddress:", tusimaAirDrop.address);
+  console.log("waiting two comfirm ... ");
+  const receipt = await tusimaAirDrop.deployTransaction.wait(2);
 
   console.log(
-    `Lock with ${ethers.formatEther(
-      lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
+    "implementationAddress",
+    await upgrades.erc1967.getImplementationAddress(tusimaAirDrop.address)
   );
 }
 
