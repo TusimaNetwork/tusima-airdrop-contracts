@@ -1,2 +1,5 @@
 # tusima-airdrop-contracts
-Tusima airdrop contracts
+
+yarn 
+forge install
+
