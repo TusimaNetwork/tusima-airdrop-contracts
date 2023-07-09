@@ -18,7 +18,7 @@ async function main() {
     // we need to pass in the arguments to the initialize()
     // function here.
     [
-      process.env.admin==''? deployer.address:process.env.admin,
+      deployer.address,
       process.env.tokenName,
       process.env.toknSymbol,
       process.env.supplyCap,
@@ -28,6 +28,7 @@ async function main() {
     { initializer: "initialize" }
   );
   await origamiGovernanceToken.deployed();
+  console.log("origamiGovernanceToken address:",origamiGovernanceToken.address);
 
   /*
   // proxy address
@@ -57,6 +58,7 @@ async function main() {
     kind: "uups",
   });
   await tusimaAirDrop.deployed();
+  console.log("tusimaAirDrop address:",tusimaAirDrop.address);
 
   /*
   console.log("等待兩個網路確認 ... ")

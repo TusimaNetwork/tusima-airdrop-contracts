@@ -8,9 +8,9 @@ const { StandardMerkleTree } = require("@openzeppelin/merkle-tree");
 
 task("build", "transfer data from excel to json").setAction(async () => {
   const xlsx = require("node-xlsx");
-  const excelFilePath = "./airdrop.xlsx";
+  const excelFilePath = "./airdrop.xls";
   const sheets = xlsx.parse(excelFilePath);
-  const sheet = sheets[0];
+  const sheet = sheets[3];
 
   const tree = StandardMerkleTree.of(sheet.data, ["address", "uint256"]);
   await fs.writeFileSync("airDrop.json", JSON.stringify(tree.dump()));

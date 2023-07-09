@@ -81,7 +81,7 @@ contract TusimaAirDrop is Initializable,OwnableUpgradeable,UUPSUpgradeable{
     }
     
     function _leaf(address account,uint256 amount) internal pure returns (bytes32){
-        return keccak256(abi.encodePacked(account,amount));
+        return keccak256(bytes.concat(keccak256(abi.encode(account, amount))));
     }
 
     function _verify(bytes32 leaf, bytes32[] memory proof) internal view returns (bool){
