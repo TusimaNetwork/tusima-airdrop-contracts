@@ -44,8 +44,6 @@ describe("OPDrop", function () {
      
     });
 
-
-
     it("should mint token successfully", async function () {
       const billionEther = ethers.utils.parseUnits("100000000", "ether");
       await deployments.token.mint(

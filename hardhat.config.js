@@ -9,7 +9,8 @@ require("./task/newRound.task");
 //updateRound task
 require("./task/updateRound.task");
 
-
+//update task
+require("./task/update.task");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -28,30 +29,8 @@ module.exports = {
   },
   // defaultNetwork: "optimismGoerli",
   networks: {
-    arbitrumOne: {
-      url: `${process.env.ArbitrumOne_END_POINT}`,
-      accounts: {
-        mnemonic: process.env.MNEMONIC,
-        path: "m/44'/60'/0'/0",
-        initialIndex: 0,
-        count: 20,
-        passphrase: "",
-      },
-    },
-    arbitrumGoerli: {
-      // url: `https://eth-sepolia.g.alchemy.com/v2/${process.env.ALCHEMY_END_POINT}`,
-      url: "https://goerli-rollup.arbitrum.io/rpc",
-      chainId: 421613,
-      accounts: {
-        mnemonic: process.env.MNEMONIC,
-        path: "m/44'/60'/0'/0",
-        initialIndex: 0,
-        count: 20,
-        passphrase: "",
-      },
-    },
     optimism: {
-      url: `${process.env.ArbitrumOne_END_POINT}`,
+      url: `https://opt-mainnet.g.alchemy.com/v2/${process.env.Optimism_End_Point}`,
       accounts: {
         mnemonic: process.env.MNEMONIC,
         path: "m/44'/60'/0'/0",
@@ -61,7 +40,7 @@ module.exports = {
       },
     },
     optimismGoerli: {
-      url: `https://opt-goerli.g.alchemy.com/v2/${process.env.Optimism_End_Point}`,
+      url: `https://opt-goerli.g.alchemy.com/v2/${process.env.OptimismGoerli_End_Point}`,
       accounts: {
         mnemonic: process.env.MNEMONIC,
         path: "m/44'/60'/0'/0",
