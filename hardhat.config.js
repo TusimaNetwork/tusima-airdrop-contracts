@@ -2,6 +2,7 @@ require("dotenv").config({ override: true });
 require("@nomicfoundation/hardhat-toolbox");
 require("@openzeppelin/hardhat-upgrades");
 require("@nomicfoundation/hardhat-foundry");
+const { ethers } = require("hardhat");
 const fs = require("fs");
 const { Web3 } = require("web3");
 const { StandardMerkleTree } = require("@openzeppelin/merkle-tree");
@@ -17,9 +18,11 @@ task("build", "transfer data from excel to json").setAction(async () => {
   console.log("---- translate to json finished already ----");
 
   const web3 = new Web3(`https://opt-goerli.g.alchemy.com/v2/${process.env.Optimism_End_Point}`);
-  const TusimaAirDrop = fs.readFileSync('./artifacts/contracts/tusimaAirDrop.sol/TusimaAirDrop.json', 'utf8');
-  let tusimaAirDrop = JSON.parse(TusimaAirDrop);
-  const contract = new web3.eth.Contract(tusimaAirDrop.abi, process.env.airDropAddress);
+  // const TusimaAirDrop = fs.readFileSync('./artifacts/contracts/tusimaAirDrop.sol/TusimaAirDrop.json', 'utf8');
+  // const TusimaAirDrop = require("./artifacts/contracts/tusimaAirDrop.sol/TusimaAirDrop.json");
+  // let tusimaAirDrop = JSON.parse(TusimaAirDrop);
+  // const contract = new web3.eth.Contract(TusimaAirDrop.abi, process.env.airDropAddress);
+  const contract = await ethers.getContractAt("TusimaAirDrop", process.env.airDropAddress);
   await contract.methods.updateMerkleRoot(tree.root).call((error, result) => {
     if (error) {
       console.error(error);
