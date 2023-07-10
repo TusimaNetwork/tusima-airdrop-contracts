@@ -7,9 +7,19 @@ async function main() {
   const [deployer] = await hre.ethers.getSigners();
 
   console.log(`====== MockToken Deploying ======`);
-  const MockToken = await hre.ethers.getContractFactory("MockToken");
-  const mockToken = await MockToken.deploy();
-  await mockToken.deployed();
+
+  const airdropConfig = require("../airdrop.config");
+  const config = airdropConfig[hre.network.name];
+
+  let token;
+
+  if (hre.network.name == "hardhat") {
+    const MockToken = await hre.ethers.getContractFactory("MockToken");
+    const token = await MockToken.deploy();
+    await token.deployed();
+  } else  {
+    token = await hre.ethers.getContractAt("MockToken", config.token);
+  }
 
   console.log(`====== TusimaAirDrop Deploying ======`);
   const TusimaAirDrop = await ethers.getContractFactory("TusimaAirDrop");
@@ -22,7 +32,7 @@ async function main() {
   await tusimaAirDrop.deployed();
   console.log("tusimaAirDrop address:",tusimaAirDrop.address);
   return {
-    mockToken,
+    token,
     tusimaAirDrop,
   };
 }

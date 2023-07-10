@@ -31,10 +31,14 @@ const run = () => {
 
       console.log("---- upload json to github already ----");
 
+      const airdropConfig = require("../airdrop.config");
+      const config = airdropConfig[hre.network.name];
+      const airdropAddr = config.airdrop;
+
       // upodate MerkleRoot
       const tusimaAirDrop = await hre.ethers.getContractAt(
         "TusimaAirDrop",
-        process.env.airDropAddress
+        airdropAddr
       );
 
       const tx = await tusimaAirDrop.updateMerkleRoot(tree.root);
