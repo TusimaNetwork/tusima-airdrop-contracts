@@ -40,24 +40,29 @@ describe("OPDrop", function () {
   }
 
   describe("merkleTree proof", async function () {
+    it("should not scucess without right time", async function () {
+     
+    });
+
+
 
     it("should mint token successfully", async function () {
       const billionEther = ethers.utils.parseUnits("100000000", "ether");
-      await deployments.mockToken.mint(
-        await deployments.tusimaAirDrop.address,
+      await deployments.token.mint(
+        await deployments.tusimaAirdrop.address,
         billionEther
       );
 
       expect(
-        await deployments.mockToken.balanceOf(deployments.tusimaAirDrop.address)
+        await deployments.token.balanceOf(deployments.tusimaAirdrop.address)
       ).to.equal(billionEther);
     });
 
     it("should update dropContract successfully", async function () {
       const timestamp = await time.latest();
-      await deployments.tusimaAirDrop.updateRound(timestamp,timestamp+86400);
-      await deployments.tusimaAirDrop.setTokenAddr(
-        deployments.mockToken.address
+      await deployments.tusimaAirdrop.updateRound(timestamp,timestamp+86400);
+      await deployments.tusimaAirdrop.setTokenAddr(
+        deployments.token.address
       );
     })
 
@@ -66,7 +71,7 @@ describe("OPDrop", function () {
       const tree = StandardMerkleTree.load(
         JSON.parse(fs.readFileSync("./tusima-airdrop-merkledata/airDrop.json"))
       );
-      await deployments.tusimaAirDrop.updateMerkleRoot(tree.root);
+      await deployments.tusimaAirdrop.updateMerkleRoot(tree.root);
 
       //get proof
       var deployerProof;
@@ -76,8 +81,8 @@ describe("OPDrop", function () {
         }
       }
 
-      await deployments.tusimaAirDrop.claim(deployerProof, "50000000000000000000");
-      expect(await deployments.tusimaAirDrop.claimed(deployer.address,0)).to.equal(true);
+      await deployments.tusimaAirdrop.claim(deployerProof, "50000000000000000000");
+      expect(await deployments.tusimaAirdrop.claimed(deployer.address,0)).to.equal(true);
     });
 
     it("should print five local address", async function () {

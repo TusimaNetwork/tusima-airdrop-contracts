@@ -8,7 +8,7 @@ import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/cryptography/MerkleProofUpgradeable.sol";
 
-contract TusimaAirDrop is Initializable,OwnableUpgradeable,UUPSUpgradeable{
+contract TusimaAirdrop is Initializable,OwnableUpgradeable,UUPSUpgradeable{
     using SafeERC20Upgradeable for IERC20Upgradeable;
 
     uint8 public currRound;

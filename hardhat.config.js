@@ -3,9 +3,13 @@ require("@nomicfoundation/hardhat-toolbox");
 require("@openzeppelin/hardhat-upgrades");
 require("@nomicfoundation/hardhat-foundry");
 
-//update task
-const { run: runtest } = require("./task/update.task");
-runtest()
+//newRound task
+require("./task/newRound.task");
+
+//updateRound task
+require("./task/updateRound.task");
+
+
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -22,7 +26,7 @@ module.exports = {
       },
     ],
   },
-  defaultNetwork: "optimismGoerli",
+  // defaultNetwork: "optimismGoerli",
   networks: {
     arbitrumOne: {
       url: `${process.env.ArbitrumOne_END_POINT}`,

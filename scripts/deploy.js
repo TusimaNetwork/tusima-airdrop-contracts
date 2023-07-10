@@ -9,23 +9,25 @@ const hre = require("hardhat");
 async function main() {
   const deployment = require("./deploy.exe");
   const deployments = ({ 
-    mockToken, 
-    tusimaAirDrop 
+    token, 
+    tusimaAirdrop 
   } = await deployment.execute());
 
   console.log(`****** MockToken ******`);
-  console.log("MockTokenAddress:", mockToken.address);
+  console.log("MockTokenAddress:", token.address);
 
 
-  console.log(`****** TusimaAirDrop ******`);
-  console.log("proxyAddress:", tusimaAirDrop.address);
+  console.log(`****** TusimaAirdrop ******`);
+  console.log("proxyAddress:", tusimaAirdrop.address);
   console.log("waiting two comfirm ... ");
-  const receipt = await tusimaAirDrop.deployTransaction.wait(2);
+  const receipt = await tusimaAirdrop.deployTransaction.wait(2);
 
   console.log(
     "implementationAddress",
-    await upgrades.erc1967.getImplementationAddress(tusimaAirDrop.address)
+    await upgrades.erc1967.getImplementationAddress(tusimaAirdrop.address)
   );
+
+
 }
 
 // We recommend this pattern to be able to use async/await everywhere
