@@ -8,25 +8,14 @@ const hre = require("hardhat");
 
 async function main() {
   const deployment = require("./deploy.exe");
-  const deployments = ({ origamiGovernanceToken, tusimaAirDrop } =
-    await deployment.execute());
+  const deployments = ({ 
+    mockToken, 
+    tusimaAirDrop 
+  } = await deployment.execute());
 
-  console.log(`****** OrigamiGovernanceToken ******`);
-  // proxy address
-  const proxyAddress = origamiGovernanceToken.address;
+  console.log(`****** MockToken ******`);
+  console.log("MockTokenAddress:", mockToken.address);
 
-  // implementationAddress
-  const implementationAddress = await upgrades.erc1967.getImplementationAddress(
-    origamiGovernanceToken.address
-  );
-  // proxyAdmin 合约地址
-  const adminAddress = await upgrades.erc1967.getAdminAddress(
-    origamiGovernanceToken.address
-  );
-
-  console.log(`proxyAddress: ${proxyAddress}`);
-  console.log(`implementationAddress: ${implementationAddress}`);
-  console.log(`adminAddress: ${adminAddress}`);
 
   console.log(`****** TusimaAirDrop ******`);
   console.log("proxyAddress:", tusimaAirDrop.address);

@@ -29,7 +29,7 @@ async function main() {
   const implementationAddress = await upgrades.erc1967.getImplementationAddress(
     origamiGovernanceToken.address
   );
-  // proxyAdmin 合约地址
+  // proxyAdmin 
   const adminAddress = await upgrades.erc1967.getAdminAddress(
     origamiGovernanceToken.address
   );
