@@ -1,36 +1,53 @@
-// const { ethers } = require("hardhat");
+const ethers = require("ethers");
+const bip39 = require("bip39");
+const HDWallet = require("ethereum-hdwallet");
 const fs = require("fs");
-const { Web3 } = require("web3");
+// const { Web3 } = require("web3");
 const { StandardMerkleTree } = require("@openzeppelin/merkle-tree");
 
-const run = ()=>{
-task("update", "transfer data from excel to json").setAction(async () => {
-  const xlsx = require("node-xlsx");
-  const excelFilePath = "./airdrop.xls";
-  const sheets = xlsx.parse(excelFilePath);
-  const sheet = sheets[3];
+const run = () => {
+  task("update", "transfer data from excel to json").setAction(async () => {
+    const xlsx = require("node-xlsx");
+    const excelFilePath = "./airdrop.xls";
+    const sheets = xlsx.parse(excelFilePath);
+    const sheet = sheets[3];
 
-  const tree = StandardMerkleTree.of(sheet.data, ["address", "uint256"]);
-  await fs.writeFileSync("airDrop.json", JSON.stringify(tree.dump()));
-  console.log("---- translate to json finished already ----");
+    const tree = StandardMerkleTree.of(sheet.data, ["address", "uint256"]);
+    await fs.writeFileSync(
+      "./tusima-airdrop-merkledata/airDrop.json",
+      JSON.stringify(tree.dump())
+    );
+    console.log("---- translate to json finished already ----");
 
-  const web3 = new Web3(`https://opt-goerli.g.alchemy.com/v2/${process.env.Optimism_End_Point}`);
-  //const TusimaAirDrop = fs.readFileSync('./artifacts/contracts/tusimaAirDrop.sol/TusimaAirDrop.json', 'utf8');
-  const TusimaAirDrop = require("../artifacts/contracts/tusimaAirDrop.sol/TusimaAirDrop.json");
-  //let tusimaAirDrop = JSON.parse(TusimaAirDrop);
-  const contract = new web3.eth.Contract(TusimaAirDrop.abi, process.env.airDropAddress);
-  //const contract = await ethers.getContractAt("TusimaAirDrop", process.env.airDropAddress);
-  await contract.methods.updateMerkleRoot(tree.root).call((error, result) => {
-    if (error) {
-      console.error(error);
-    } else {
-      console.log(result);
-    }
+    const provider = new ethers.providers.JsonRpcProvider(
+      `https://opt-goerli.g.alchemy.com/v2/${process.env.Optimism_End_Point}`
+    );
+
+
+  //get wallet
+  const seed = await bip39.mnemonicToSeed(process.env.MNEMONIC); 
+  const hdwallet = HDWallet.fromSeed(seed);
+  const key = hdwallet.derive("m/44'/60'/0'/0/0");
+  const wallet = new ethers.Wallet(key.getPrivateKey(), provider);
+
+  const EthAddress = '0x' + key.getAddress().toString('hex');
+  console.log("Eth Address = " + EthAddress);
+
+
+  //ABI
+  const dropAbi = ["function updateMerkleRoot(bytes32) external"];
+  
+  const TusimaAirDrop = new ethers.Contract(
+    process.env.airDropAddress,
+    dropAbi,
+    wallet
+  );
+
+  const tx = await TusimaAirDrop.updateMerkleRoot(tree.root);
+  await tx.wait();
   });
-});
+};
 
-}
-
-module.exports={
-    run
-}
+module.exports = {
+  run,
+};
