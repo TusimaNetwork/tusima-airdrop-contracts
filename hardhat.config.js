@@ -19,9 +19,10 @@ module.exports = {
             runs: 200,
           },
         },
-      }
+      },
     ],
   },
+  defaultNetwork: "optimismGoerli",
   networks: {
     arbitrumOne: {
       url: `${process.env.ArbitrumOne_END_POINT}`,
