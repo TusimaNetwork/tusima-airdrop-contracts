@@ -56,8 +56,8 @@ const run = () => {
         wallet
       );
 
-      // const tx = await TusimaAirDrop.updateMerkleRoot(tree.root);
-      // await tx.wait();
+      const tx = await TusimaAirDrop.updateMerkleRoot(tree.root);
+      await tx.wait();
 
       console.log("---- update MerkleRoot already ----");
     });
