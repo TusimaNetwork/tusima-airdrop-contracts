@@ -19,5 +19,5 @@ task("updateRound", "update round time")
     const tx = await tusimaAirdrop.updateRound(taskArgs.start, taskArgs.end);
     await tx.wait();
 
-    console.log("---- update MerkleRoot already ----");
+    console.log("---- update round time already ----");
   });
