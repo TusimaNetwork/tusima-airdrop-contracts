@@ -58,7 +58,7 @@ npx hardhat test test/airdrop.test.js
 #### newRound
 
 ```
-npx hardhat updateRound --start startTime --end endTime --network <network>
+npx hardhat updateRound --start <startTime> --end <endTime> --network <network>
 ```
 
 This task is used to start a new round within the set time.
@@ -66,7 +66,7 @@ This task is used to start a new round within the set time.
 #### updateRound
 
 ````
-npx hardhat updateRound --start startTime --end endTime --network <network>
+npx hardhat updateRound --start <startTime> --end <endTime> --network <network>
 ````
 
 This task is used to update the start and end time of the current round.
@@ -74,7 +74,7 @@ This task is used to update the start and end time of the current round.
 #### update
 
 ```
-npx hardhat update --path excelFilePath --sheet sheetNum --network <network>
+npx hardhat update --path <excelFilePath> --sheet <sheetNum> --network <network>
 ```
 
 This task is used for 
