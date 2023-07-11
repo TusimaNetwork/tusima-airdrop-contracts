@@ -74,7 +74,7 @@ This task is used to update the start and end time of the current round.
 #### update
 
 ```
-npx hardhat update --path <excelFilePath> --sheet <sheetNum> --network <network>
+npx hardhat update --path <excelFilePath> --sheet <sheetNum> --branch <gitBranch> --network <network>
 ```
 
 This task is used for 

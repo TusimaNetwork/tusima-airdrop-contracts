@@ -5,6 +5,7 @@ const { StandardMerkleTree } = require("@openzeppelin/merkle-tree");
 task("update", "transfer data from excel to json")
   .addParam("path", "The excel file path")
   .addParam("sheet", "The sheet of the data")
+  .addParam("branch", "The branch of json upload")
   .setAction(async (taskArgs, hre) => {
     const xlsx = require("node-xlsx");
     const sheets = xlsx.parse(taskArgs.path);
@@ -22,7 +23,7 @@ task("update", "transfer data from excel to json")
       binary: "git",
     });
     await git.pull();
-    await git.checkout("test");
+    await git.checkout(taskArgs.branch);
     await git.add("./");
     await git.commit("update json");
     await git.push();
