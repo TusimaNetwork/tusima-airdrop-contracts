@@ -16,7 +16,7 @@ install the required dependencies inside the relevant folders:
 yarn
 ```
 
-create .env file according to .env.example
+create .env file 
 ```
 # 
 MNEMONIC= 
