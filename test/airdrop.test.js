@@ -40,9 +40,6 @@ describe("OPDrop", function () {
   }
 
   describe("merkleTree proof", async function () {
-    it("should not scucess without right time", async function () {
-     
-    });
 
     it("should mint token successfully", async function () {
       const billionEther = ethers.utils.parseUnits("100000000", "ether");
@@ -56,20 +53,27 @@ describe("OPDrop", function () {
       ).to.equal(billionEther);
     });
 
-    it("should update dropContract successfully", async function () {
-      const timestamp = await time.latest();
-      await deployments.tusimaAirdrop.updateRound(timestamp,timestamp+86400);
+    it("should set contractAddress and merkleroot successfully", async function () {
       await deployments.tusimaAirdrop.setTokenAddr(
         deployments.token.address
       );
-    })
-
-    it("should claim successfully", async function () {
 
       const tree = StandardMerkleTree.load(
         JSON.parse(fs.readFileSync("./tusima-airdrop-merkledata/airDrop.json"))
       );
       await deployments.tusimaAirdrop.updateMerkleRoot(tree.root);
+
+      
+      expect(await deployments.tusimaAirdrop.tokenAddr()).to.equal(
+        deployments.token.address
+      );
+      expect(await deployments.tusimaAirdrop.merkleRoot()).to.equal(tree.root);
+    })
+
+    it("cannot claim with wrong time", async function () {
+      const tree = StandardMerkleTree.load(
+        JSON.parse(fs.readFileSync("./tusima-airdrop-merkledata/airDrop.json"))
+      );
 
       //get proof
       var deployerProof;
@@ -79,7 +83,41 @@ describe("OPDrop", function () {
         }
       }
 
-      await deployments.tusimaAirdrop.claim(deployerProof, "50000000000000000000");
+      expect(
+        deployments.tusimaAirdrop.claim(
+          deployerProof,
+          "53500000000000000000"
+        )
+      ).to.be.revertedWith("wrong time");
+    })
+
+    it("should update time successfully", async function () {
+      const timestamp = await time.latest();
+      await deployments.tusimaAirdrop.updateRound(timestamp-1,timestamp+86400);
+      var result = await deployments.tusimaAirdrop.roundMap(0);
+      expect(result[0]).to.equal(timestamp-1);
+      expect(result[1]).to.equal(timestamp + 86400);
+    })
+
+
+    it("should claim successfully", async function () {
+
+      const tree = StandardMerkleTree.load(
+        JSON.parse(fs.readFileSync("./tusima-airdrop-merkledata/airDrop.json"))
+      );
+
+      //get proof
+      var deployerProof;
+      for (const [i, v] of tree.entries()) {
+        if (v[0] === deployer.address) {
+          deployerProof = tree.getProof(i);
+        }
+      }
+
+      await deployments.tusimaAirdrop.claim(
+        deployerProof,
+        "53500000000000000000"
+      );
       expect(await deployments.tusimaAirdrop.claimed(deployer.address,0)).to.equal(true);
     });
 
