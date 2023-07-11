@@ -12,11 +12,6 @@ task("update", "transfer data from excel to json")
     const sheet = sheets[taskArgs.sheet];
 
     const tree = StandardMerkleTree.of(sheet.data, ["address", "uint256"]);
-    await fs.writeFileSync(
-      "./tusima-airdrop-merkledata/airDrop.json",
-      JSON.stringify(tree.dump())
-    );
-    console.log("---- translate to json finished already ----");
 
     // upload json to github
     git = simpleGit(`${process.cwd()}/tusima-airdrop-merkledata/`, {
@@ -24,6 +19,13 @@ task("update", "transfer data from excel to json")
     });
     await git.pull();
     await git.checkout(taskArgs.branch);
+
+    await fs.writeFileSync(
+      "./tusima-airdrop-merkledata/airDrop.json",
+      JSON.stringify(tree.dump())
+    );
+    console.log("---- translate to json finished already ----");
+
     await git.add("./");
     await git.commit("update json");
     await git.push();
