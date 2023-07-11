@@ -12,6 +12,8 @@ require("./task/updateRound.task");
 //update task
 require("./task/update.task");
 
+require("./task/accounts.task");
+
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: {
@@ -33,20 +35,20 @@ module.exports = {
       url: `https://opt-mainnet.g.alchemy.com/v2/${process.env.Optimism_End_Point}`,
       accounts: {
         mnemonic: process.env.MNEMONIC,
-        path: "m/44'/60'/0'/0",
-        initialIndex: 0,
-        count: 20,
-        passphrase: "",
+        // path: "m/44'/60'/0'/0",
+        // initialIndex: 0,
+        // count: 20,
+        // passphrase: "",
       },
     },
     optimismGoerli: {
       url: `https://opt-goerli.g.alchemy.com/v2/${process.env.OptimismGoerli_End_Point}`,
       accounts: {
         mnemonic: process.env.MNEMONIC,
-        path: "m/44'/60'/0'/0",
-        initialIndex: 0,
-        count: 20,
-        passphrase: "",
+        // path: "m/44'/60'/0'/0",
+        // initialIndex: 0,
+        // count: 20,
+        // passphrase: "",
       },
     },
   },
