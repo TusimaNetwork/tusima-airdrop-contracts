@@ -11,9 +11,6 @@ async function main() {
   const config = airdropConfig[hre.network.name];
 
   let token;
-
-  console.log("hre.network.name :", hre.network.name);
-
   if (hre.network.name == "hardhat") {
     const MockToken = await hre.ethers.getContractFactory("MockToken");
     token = await MockToken.deploy();
