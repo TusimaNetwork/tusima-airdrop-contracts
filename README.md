@@ -39,6 +39,10 @@ npx hardhat run scripts/deploy.js --network <network>
 
 > if you want to deploy in another network, add network config in hardhat.config.js
 
+Verify **tusimaAirDrop** :
+```
+npx hardhat verify --network <network> --contract contracts/tusimaAirdrop.sol:TusimaAirdrop <tusimaAirDrop implementationAddress>
+```
 
 
 Run test script:
