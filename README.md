@@ -58,7 +58,7 @@ npx hardhat test test/airdrop.test.js
 #### newRound
 
 ```
-npx hardhat updateRound --start <startTime> --end <endTime> --network <network>
+npx hardhat newRound --start <startTime> --end <endTime> --network <network>
 ```
 
 This task is used to start a new round within the set time.

@@ -4,7 +4,7 @@ module.exports = {
     airdrop: "",
   },
   optimismGoerli: {
-    token: "0x5EAC65A71895113E6364028fb97652439E961588",
+    token: "0xf8D16150DE6fAb6e24Cd898cBfdE2280452a0882",
     airdrop: "0xd6E080e55CFE5952C0D260C07E9E921C5934db23",
   },
 };
