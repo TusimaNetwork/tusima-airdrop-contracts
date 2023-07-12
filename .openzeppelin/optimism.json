@@ -1,0 +1,178 @@
+{
+  "manifestVersion": "3.2",
+  "proxies": [
+    {
+      "address": "0x9c2A111c858CD22ca501A8EF2BECbeE7a0b6dcEa",
+      "txHash": "0x6bc9a15b48881c7efb5a8cebc22190efcdd5bf1f866beacbe83a0745cf58fcb5",
+      "kind": "uups"
+    }
+  ],
+  "impls": {
+    "e9e0e5c24827a9232b73fa878e11d4be824852ec9498394727fa79669966dfc8": {
+      "address": "0x9FB12FC2b84FE43E3f29fbd8F5A51fddCE03eB86",
+      "txHash": "0xe038e4691873f95feb51d90c551975ad180ea87475bfdf9c2ddef2e1b377487b",
+      "layout": {
+        "solcVersion": "0.8.16",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:36"
+          },
+          {
+            "label": "_owner",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_address",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "52",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:94"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ERC1967UpgradeUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:169"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "151",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "UUPSUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:111"
+          },
+          {
+            "label": "currRound",
+            "offset": 0,
+            "slot": "201",
+            "type": "t_uint8",
+            "contract": "TusimaAirdrop",
+            "src": "contracts/tusimaAirdrop.sol:14"
+          },
+          {
+            "label": "tokenAddr",
+            "offset": 1,
+            "slot": "201",
+            "type": "t_address",
+            "contract": "TusimaAirdrop",
+            "src": "contracts/tusimaAirdrop.sol:15"
+          },
+          {
+            "label": "merkleRoot",
+            "offset": 0,
+            "slot": "202",
+            "type": "t_bytes32",
+            "contract": "TusimaAirdrop",
+            "src": "contracts/tusimaAirdrop.sol:16"
+          },
+          {
+            "label": "roundMap",
+            "offset": 0,
+            "slot": "203",
+            "type": "t_mapping(t_uint8,t_struct(Round)2330_storage)",
+            "contract": "TusimaAirdrop",
+            "src": "contracts/tusimaAirdrop.sol:23"
+          },
+          {
+            "label": "claimed",
+            "offset": 0,
+            "slot": "204",
+            "type": "t_mapping(t_address,t_mapping(t_uint8,t_bool))",
+            "contract": "TusimaAirdrop",
+            "src": "contracts/tusimaAirdrop.sol:24"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_bytes32": {
+            "label": "bytes32",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_mapping(t_uint8,t_bool))": {
+            "label": "mapping(address => mapping(uint8 => bool))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint8,t_bool)": {
+            "label": "mapping(uint8 => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint8,t_struct(Round)2330_storage)": {
+            "label": "mapping(uint8 => struct TusimaAirdrop.Round)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Round)2330_storage": {
+            "label": "struct TusimaAirdrop.Round",
+            "members": [
+              {
+                "label": "start",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "end",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    }
+  }
+}

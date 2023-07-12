@@ -54,6 +54,7 @@ module.exports = {
   },
   etherscan: {
     apiKey: {
+      optimisticEthereum: process.env.OPTIMISM_API_KEY,
       optimisticGoerli: process.env.OPTIMISM_API_KEY,
     },
   },
